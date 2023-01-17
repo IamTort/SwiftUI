@@ -5,12 +5,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: - Private Constants
+    private enum Constants {
+        static let helloText = "Hello, world!"
+        static let showText = "Показать"
+        static let exampleText = "Пример Alert"
+        static let chooseButtonText = "Выбери кнопку"
+        static let redOrBlueText = "Красная или синяя?"
+        static let redText = "Красная"
+        static let blueText = "Синяя"
+        static let youChooseRedText = "Ты выбрал красную!"
+        static let youChooseBlueText = "Ты выбрал синюю!"
+        static let loadingString = "Loading..."
+        static let loadPhotoText = "Are you ready load photo?"
+        static let okText = "ok"
+        static let changeColorTitle = "Изменить цвет?"
+        static let yellowString = "Желтый"
+        static let redString = "Красный"
+        static let youChooseTitle = "Ты выбрал"
+        static let thirtyNumber = 30
+        
+        
+    }
+    
     @State var isError = false
     @State var isBlueRed = false
     @State var isActionSheet = false
     @State var isActionSheetColor = false
-    @State var textToUpdate = "Hello, world!"
-    @State var colorText = "Hello, world!"
+    @State var textToUpdate = Constants.helloText
+    @State var colorText =  Constants.helloText
     
     var body: some View {
         VStack {
@@ -18,50 +42,47 @@ struct ContentView: View {
             Button {
                 self.isError = true
             } label: {
-                Text("Показать")
+                Text(Constants.showText)
             }.alert(isPresented: $isError) {
-                Alert(title: Text("Пример Alert"))
-            }.padding(30)
+                Alert(title: Text(Constants.exampleText))
+            }.padding(Constants.thirtyNumber)
 
             Button {
                 self.isBlueRed = true
             } label: {
-                Text("Показать")
+                Text(Constants.showText)
             }.alert(isPresented: $isBlueRed) {
-                Alert(title: Text("Выбери кнопку"), message: Text("Красная или синяя"), primaryButton: .destructive(Text("Красная"), action: {
-                    self.textToUpdate = "Ты выбрал красную!"
-                }), secondaryButton: .default(Text("Blue"), action: {
-                    self.textToUpdate = "Ты выбрал синюю!"
+                Alert(title: Text(Constants.chooseButtonText), message: Text(Constants.redOrBlueText), primaryButton: .destructive(Text(Constants.redText), action: {
+                    self.textToUpdate = Constants.youChooseRedText
+                }), secondaryButton: .default(Text(Constants.blueText), action: {
+                    self.textToUpdate = Constants.youChooseBlueText
                 }))
-            }.padding(30)
+            }.padding(Constants.thirtyNumber)
             
             Button {
                 self.isActionSheet = true
             } label: {
-                Text("Показать")
+                Text(Constants.showText)
             }.actionSheet(isPresented: $isActionSheet) {
-                ActionSheet(title: Text("Loading..."),
-                            message: Text("Are you ready load photo?"),
-                            buttons: [.cancel(), .default(Text("ok"))])
-            }.padding(30)
+                ActionSheet(title: Text(Constants.loadingString),
+                            message: Text(Constants.loadPhotoText),
+                            buttons: [.cancel(), .default(Text(Constants.okText))])
+            }.padding(Constants.thirtyNumber)
             
             Button {
                 self.isActionSheetColor = true
             } label: {
-                Text("Показать")
+                Text(Constants.showText)
             }.actionSheet(isPresented: $isActionSheetColor) {
-                ActionSheet(title: Text("Loading..."),
-                            message: Text("Change color?"),
-                            buttons: [.cancel(), .default(Text("Желтый"), action: {
-                    self.colorText = "Ты выбрал Желтый!"
-                }), .default(Text("Красный"), action: {
-                    self.colorText = "Ты выбрал Красный!"
+                ActionSheet(title: Text(Constants.loadingString),
+                            message: Text(Constants.changeColorTitle),
+                            buttons: [.cancel(), .default(Text(Constants.yellowString), action: {
+                    self.colorText = "\(Constants.youChooseTitle) \(Constants.yellowString)!"
+                }), .default(Text(Constants.redString), action: {
+                    self.colorText = "\(Constants.youChooseTitle) \(Constants.redString)!"
                 })])
-            }.padding(30)
+            }.padding(Constants.thirtyNumber)
             
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
             Text(textToUpdate)
             Text(colorText)
         }
