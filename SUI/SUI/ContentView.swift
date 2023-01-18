@@ -4,11 +4,12 @@
 
 import SwiftUI
 
+/// Экран настроек
 struct ContentView: View {
     //    MARK: - Private Constatns
     private enum Constants {
         static let onOffBlueToothPickerValue = ["Выкл.", "Вкл."]
-        static let wifiPickerValue = ["my_wifi", "thisIsRouter", "122", "daire34"]
+        static let wifiPickerValues = ["my_wifi", "thisIsRouter", "122", "daire34"]
         static let onOffPickerBluetoothIndexValue = 0
         static let wifiIndexValue = 0
         static let avatarImageCornerRadius = 40
@@ -51,7 +52,7 @@ struct ContentView: View {
     @State var blueToothIndex = Constants.onOffPickerBluetoothIndexValue
     @State var isOnAvia = false
     @State var isOnVPN = false
-    var wifi = Constants.wifiPickerValue
+    var wifis = Constants.wifiPickerValues
     var bluTooths = Constants.onOffBlueToothPickerValue
     
     var body: some View {
@@ -135,8 +136,8 @@ struct ContentView: View {
                     HStack {
                         Image(Constants.wifiImageName).cornerRadius(Constants.imageCornerRadius)
                         Picker(selection: $wifiIndex) {
-                            ForEach(0..<wifi.count) {
-                                Text(self.wifi[$0])
+                            ForEach(0..<wifis.count) {
+                                Text(self.wifis[$0])
                             }
                         } label: {
                             Text(Constants.wifiText)
