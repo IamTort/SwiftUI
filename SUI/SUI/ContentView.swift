@@ -77,9 +77,10 @@ struct ContentView: View {
             }), in: 0...viewModel.maxDuration)
             
             HStack {
-                Text(String(format: Constants.formatString, viewModel.currentDuration/Constants.minutesNumber)).padding()
+                Text("\(Int(viewModel.currentDuration) / 60):\(Int(viewModel.currentDuration) % 60)")
+                    .padding()
                 Spacer()
-                Text(String(format: Constants.formatString, viewModel.maxDuration/Constants.minutesNumber))
+                Text("\(Int(viewModel.maxDuration) / 60):\(Int(viewModel.maxDuration) % 60)")
                     .padding()
             }
             

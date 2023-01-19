@@ -39,6 +39,7 @@ final class PlayerViewModel: ObservableObject {
     func play() {
         playSong(name: songs[songIndex])
         player?.play()
+        isWorkTimer = false
         setTime(value: Float(currentDuration))
     }
     
@@ -50,6 +51,7 @@ final class PlayerViewModel: ObservableObject {
     func previousSong() {
         stop()
         guard songIndex > Constants.zeroNumber else { return }
+        isWorkTimer = false
         songIndex -= Constants.oneNumber
         playSong(name: songs[songIndex])
         player?.play()
@@ -59,6 +61,7 @@ final class PlayerViewModel: ObservableObject {
     func nextSong() {
         stop()
         guard songIndex < songs.count else { return }
+        isWorkTimer = false
         songIndex += Constants.oneNumber
         playSong(name: songs[songIndex])
         player?.play()
