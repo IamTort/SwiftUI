@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FABCEBC92979643B002E92A0 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCEBC82979643B002E92A0 /* ActivityView.swift */; };
+		FABCEBCB2979745B002E92A0 /* CustomActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCEBCA2979745B002E92A0 /* CustomActivityView.swift */; };
 		FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF22975F2F600D22F4D /* SUIApp.swift */; };
 		FAC67BF52975F2F600D22F4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF42975F2F600D22F4D /* ContentView.swift */; };
 		FAC67BF72975F2F700D22F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF62975F2F700D22F4D /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FABCEBC82979643B002E92A0 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		FABCEBCA2979745B002E92A0 /* CustomActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityView.swift; sourceTree = "<group>"; };
 		FAC67BEF2975F2F600D22F4D /* SUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC67BF22975F2F600D22F4D /* SUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIApp.swift; sourceTree = "<group>"; };
 		FAC67BF42975F2F600D22F4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				FAC67BF22975F2F600D22F4D /* SUIApp.swift */,
 				FAC67BF42975F2F600D22F4D /* ContentView.swift */,
+				FABCEBC82979643B002E92A0 /* ActivityView.swift */,
+				FABCEBCA2979745B002E92A0 /* CustomActivityView.swift */,
 				FAC67BF62975F2F700D22F4D /* Assets.xcassets */,
 				FAC67BF82975F2F700D22F4D /* Preview Content */,
 			);
@@ -139,6 +145,8 @@
 			files = (
 				FAC67BF52975F2F600D22F4D /* ContentView.swift in Sources */,
 				FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */,
+				FABCEBCB2979745B002E92A0 /* CustomActivityView.swift in Sources */,
+				FABCEBC92979643B002E92A0 /* ActivityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
