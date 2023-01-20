@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// Главный экран
 struct ContentView: View {
     
     // MARK: - Private Constants
@@ -25,35 +26,36 @@ struct ContentView: View {
         static let toggleNumber = 150
         static let zeroNumber = 0
         static let cornerRadiusNumber = 10
-        static let transfersMoneyAlertButton = "Перевести"
+        static let transfersMoneyAlertButtonTitle = "Перевести"
         static let openBankAccountText = "Открыть счёт"
         static let responseNumber = 0.5
         static let dampingFractionNumber = 0.7
         static let blendDurationNumber = 0.3
     }
 
-    @State var isError = false
-    @State var isOnToggle = false
-    @State var isAction = false
-    @State var isTransferAction = false
-    @State var isOpenBankAccount = false
-    @State var isTransferMoney = false
+    @State private var isError = false
+    @State private var isOnToggle = false
+    @State private var isActionShown = false
+    @State private var isTransferAction = false
+    @State private var isOpenBankAccount = false
+    @State private var isTransferMoney = false
     @State private var moneycount: String = Constants.emptyString
     @State private var account: String = Constants.emptyString
-    @State var money = Constants.moneyCount
+    @State private var money = Constants.moneyCount
     
     var body: some View {
         VStack {
             ZStack {
                 HStack {
                     VStack {
-                        Text(Constants.walletString).frame(maxWidth: .infinity, alignment: .leading)
+                        Text(Constants.walletString)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         Button {
-                            self.isAction = true
+                            self.isActionShown = true
                             money += Constants.thousandNumber
                         } label: {
                             Text(Constants.refillTheBalanceButtonTitle).frame(maxWidth: .infinity, alignment: .leading)
-                        }.frame(maxWidth: .infinity, alignment: .leading).actionSheet(isPresented: $isAction) {
+                        }.frame(maxWidth: .infinity, alignment: .leading).actionSheet(isPresented: $isActionShown) {
                             ActionSheet(title: Text(Constants.actionSheetRefillTheBalanceText))
                         }
                         
@@ -71,19 +73,23 @@ struct ContentView: View {
                             }))
                         }
                         
-                        Spacer().frame(height: CGFloat(Constants.spacerEightyNumber))
+                        Spacer()
+                            .frame(height: CGFloat(Constants.spacerEightyNumber))
                         
-                        Text(Constants.profileTitle).frame(maxWidth: .infinity, alignment: .leading)
+                        Text(Constants.profileTitle)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         
                         Button {
                             isOpenBankAccount = true
                         } label: {
-                            Text(Constants.openBankAccountText).frame(maxWidth: .infinity, alignment: .leading)
+                            Text(Constants.openBankAccountText)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         .alert(isPresented: $isOpenBankAccount) {
                             Alert(title: Text(Constants.openBankAccountText), message: nil, primaryButton: .default(Text(Constants.openBankAccountText)), secondaryButton: .cancel())
                         }
-                        Spacer().frame(height: CGFloat(Constants.spacerFourNumber))
+                        Spacer()
+                            .frame(height: CGFloat(Constants.spacerFourNumber))
                     }
                     Spacer()
                 }
@@ -95,8 +101,10 @@ struct ContentView: View {
             }
             Toggle(isOn: $isOnToggle) {
                 Text(Constants.showSettingsText)
-            }.padding()
-        }.animation(.spring(response: Constants.responseNumber, dampingFraction: Constants.dampingFractionNumber, blendDuration: Constants.blendDurationNumber))
+            }
+            .padding()
+        }
+        .animation(.spring(response: Constants.responseNumber, dampingFraction: Constants.dampingFractionNumber, blendDuration: Constants.blendDurationNumber))
     }
 }
 
