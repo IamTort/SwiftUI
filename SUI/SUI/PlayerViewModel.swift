@@ -1,9 +1,7 @@
-//
 //  PlayerViewModel.swift
 //  SUI
-//
 //  Created by angelina on 19.01.2023.
-//
+
 
 import AVFoundation
 
@@ -30,7 +28,6 @@ final class PlayerViewModel: ObservableObject {
     
     // MARK: - Private properties
     
-    private var isWorkTimer = false
     private var songs = Constants.songsValues
     private var songIndex = Constants.songIndex
     
@@ -38,34 +35,25 @@ final class PlayerViewModel: ObservableObject {
     
     func play() {
         playSong(name: songs[songIndex])
-        player?.play()
-        isWorkTimer = false
         setTime(value: Float(currentDuration))
     }
     
     func stop() {
-        isWorkTimer = true
         player?.stop()
     }
     
     func previousSong() {
-        stop()
         guard songIndex > Constants.zeroNumber else { return }
-        isWorkTimer = false
         songIndex -= Constants.oneNumber
         playSong(name: songs[songIndex])
         player?.play()
-        setupTimer()
     }
     
     func nextSong() {
-        stop()
         guard songIndex < songs.count - 1 else { return }
-        isWorkTimer = false
         songIndex += Constants.oneNumber
         playSong(name: songs[songIndex])
         player?.play()
-        setupTimer()
     }
     
     func setupTimer() {
@@ -74,9 +62,6 @@ final class PlayerViewModel: ObservableObject {
             self.currentDuration = Double(self.player?.currentTime ?? Constants.stubDouble)
             if Int(self.currentDuration) >= Int(self.maxDuration) {
                 self.nextSong()
-                timer.invalidate()
-            }
-            if self.isWorkTimer {
                 timer.invalidate()
             }
         }
@@ -91,6 +76,11 @@ final class PlayerViewModel: ObservableObject {
         player?.currentTime = time
         player?.play()
         setupTimer()
+    }
+    
+    func getTime() -> Date {
+        let time = Date(timeIntervalSince1970: Double(currentDuration))
+        return time
     }
     
     // MARK: - Private methods

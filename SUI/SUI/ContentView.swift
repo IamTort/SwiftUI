@@ -32,103 +32,126 @@ struct ContentView: View {
         static let butonCornerRadius: CGFloat = 50
     }
     
+    // MARK: - Public Properties
+    
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Button {
-                    isSend = true
-                } label: {
-                    Text(Constants.shareButtonText)
-                        .padding()
-                }.alert(isPresented: $isSend) {
-                    Alert(title: Text(Constants.shareButtonMessageText), message: nil, primaryButton: .cancel(), secondaryButton: .default(Text(Constants.yesText)))
-                }
-
-                Button {
-                    isSave = true
-                } label: {
-                    Text(Constants.saveButtonTitle)
-                        .padding()
-                }.actionSheet(isPresented: $isSave) {
-                    ActionSheet(title: Text(Constants.actionSheetTitle), message: Text("\(name) \(Constants.actionSheetMessageString)"), buttons: [.cancel()])
-                }
+                shareButton
+                saveButton
             }
-
+            
             Image(viewModel.setupPhotoName())
                 .resizable()
                 .cornerRadius(Constants.imageCornerRadius)
                 .frame(width: Constants.imageWidth, height: Constants.imageHeight)
-            
-            
-            Slider(value: Binding(get: {
-                Double(viewModel.currentDuration)
-            }, set: { newValue in
-                viewModel.currentDuration = Double(newValue)
-                viewModel.setTime(value: Float(viewModel.currentDuration))
-            }), in: 0...viewModel.maxDuration)
+            timeSlider
             
             HStack {
-                Text("\(Int(viewModel.currentDuration) / 60):\(Int(viewModel.currentDuration) % 60)")
-                    .padding()
+                Text(verbatim: viewModel.getTime().formatted(.dateTime.minute().second())).padding()
                 Spacer()
-                Text("\(Int(viewModel.maxDuration) / 60):\(Int(viewModel.maxDuration) % 60)")
-                    .padding()
+                Text(verbatim: Date(timeIntervalSince1970: viewModel.maxDuration - viewModel.currentDuration).formatted(.dateTime.minute().second())).padding()
             }
             
             HStack {
-                Button {
-                    viewModel.play()
-                } label: {
-                    Text(Constants.playButtonTitle)
-                        .foregroundColor(.white)
-                }
-                .frame(width: Constants.butonWidth, height: Constants.butonHeight)
-                .background(.orange)
-                .cornerRadius(Constants.butonCornerRadius)
-                
-                Button {
-                    viewModel.stop()
-                } label: {
-                    Text(Constants.stopButtonTitle)
-                        .foregroundColor(.white)
-                }
-                .frame(width: Constants.butonWidth, height: Constants.butonHeight)
-                .background(.orange)
-                .cornerRadius(Constants.butonCornerRadius)
+                startButton
+                stopButton
             }
             
             HStack {
-                Button {
-                    viewModel.previousSong()
-                } label: {
-                    Image(systemName: Constants.previousImageName)
-                        .foregroundColor(.white)
-                }
-                .frame(width: Constants.butonWidth, height: Constants.butonHeight)
-                .background(.orange)
-                .cornerRadius(Constants.butonCornerRadius)
-                
-                Button {
-                    viewModel.nextSong()
-                } label: {
-                    Image(systemName: Constants.nextImageName)
-                        .foregroundColor(.white)
-                }
-                .frame(width: Constants.butonWidth, height: Constants.butonHeight)
-                .background(.orange)
-                .cornerRadius(Constants.butonCornerRadius)
+                previousSongButton
+                nextSongButton
             }
         }
     }
     
     // MARK: - Private property
     
-    @ObservedObject private var viewModel = PlayerViewModel()
+    @StateObject private var viewModel = PlayerViewModel()
     @State private var progress: Float = 0
     @State private var name = Constants.songName
     @State private var isSend = false
     @State private var isSave = false
+    
+    private var shareButton: some View {
+        Button {
+            isSend = true
+        } label: {
+            Text(Constants.shareButtonText)
+                .padding()
+        }.alert(isPresented: $isSend) {
+            Alert(title: Text(Constants.shareButtonMessageText), message: nil, primaryButton: .cancel(), secondaryButton: .default(Text(Constants.yesText)))
+        }
+    }
+    
+    private var saveButton: some View {
+        Button {
+            isSave = true
+        } label: {
+            Text(Constants.saveButtonTitle)
+                .padding()
+        }.actionSheet(isPresented: $isSave) {
+            ActionSheet(title: Text(Constants.actionSheetTitle), message: Text("\(name) \(Constants.actionSheetMessageString)"), buttons: [.cancel()])
+        }
+    }
+    
+    private var timeSlider: some View {
+        Slider(value: Binding(get: {
+            Double(viewModel.currentDuration)
+        }, set: { newValue in
+            viewModel.currentDuration = Double(newValue)
+            viewModel.setTime(value: Float(viewModel.currentDuration))
+        }), in: 0...viewModel.maxDuration)
+    }
+    
+    private var startButton: some View {
+        Button {
+            viewModel.play()
+        } label: {
+            Text(Constants.playButtonTitle)
+                .foregroundColor(.white)
+        }
+        .frame(width: Constants.butonWidth, height: Constants.butonHeight)
+        .background(.orange)
+        .cornerRadius(Constants.butonCornerRadius)
+    }
+    
+    private var stopButton: some View {
+        Button {
+            viewModel.stop()
+        } label: {
+            Text(Constants.stopButtonTitle)
+                .foregroundColor(.white)
+        }
+        .frame(width: Constants.butonWidth, height: Constants.butonHeight)
+        .background(.orange)
+        .cornerRadius(Constants.butonCornerRadius)
+    }
+    
+    private var previousSongButton: some View {
+        Button {
+            viewModel.previousSong()
+        } label: {
+            Image(systemName: Constants.previousImageName)
+                .foregroundColor(.white)
+        }
+        .frame(width: Constants.butonWidth, height: Constants.butonHeight)
+        .background(.orange)
+        .cornerRadius(Constants.butonCornerRadius)
+    }
+    
+    private var nextSongButton: some View {
+        Button {
+            viewModel.nextSong()
+        } label: {
+            Image(systemName: Constants.nextImageName)
+                .foregroundColor(.white)
+        }
+        .frame(width: Constants.butonWidth, height: Constants.butonHeight)
+        .background(.orange)
+        .cornerRadius(Constants.butonCornerRadius)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
