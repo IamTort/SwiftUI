@@ -32,14 +32,6 @@ struct ContentView: View {
         static let butonCornerRadius: CGFloat = 50
     }
     
-    // MARK: - Private property
-    
-    @ObservedObject private var viewModel = PlayerViewModel()
-    @State private var progress: Float = 0
-    @State private var name = Constants.songName
-    @State private var isSend = false
-    @State private var isSave = false
-    
     var body: some View {
         VStack {
             HStack {
@@ -129,6 +121,14 @@ struct ContentView: View {
             }
         }
     }
+    
+    // MARK: - Private property
+    
+    @ObservedObject private var viewModel = PlayerViewModel()
+    @State private var progress: Float = 0
+    @State private var name = Constants.songName
+    @State private var isSend = false
+    @State private var isSave = false
 }
 
 struct ContentView_Previews: PreviewProvider {

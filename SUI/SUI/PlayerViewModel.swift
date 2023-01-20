@@ -60,7 +60,7 @@ final class PlayerViewModel: ObservableObject {
     
     func nextSong() {
         stop()
-        guard songIndex < songs.count else { return }
+        guard songIndex < songs.count - 1 else { return }
         isWorkTimer = false
         songIndex += Constants.oneNumber
         playSong(name: songs[songIndex])
