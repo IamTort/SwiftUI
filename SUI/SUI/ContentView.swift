@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// Главный экран
 struct ContentView: View {
     
     // MARK: - Private Constants
@@ -24,21 +25,13 @@ struct ContentView: View {
         static let yellowString = "Желтый"
         static let redString = "Красный"
         static let youChooseTitle = "Ты выбрал"
-        static let thirtyNumber = 30
-        
-        
+        static let thirtyNumber: CGFloat = 30
     }
     
-    @State var isError = false
-    @State var isBlueRed = false
-    @State var isActionSheet = false
-    @State var isActionSheetColor = false
-    @State var textToUpdate = Constants.helloText
-    @State var colorText =  Constants.helloText
+    // MARK: - Public property
     
     var body: some View {
         VStack {
-            
             Button {
                 self.isError = true
             } label: {
@@ -48,10 +41,10 @@ struct ContentView: View {
             }.padding(Constants.thirtyNumber)
 
             Button {
-                self.isBlueRed = true
+                self.isBlueRedShow = true
             } label: {
                 Text(Constants.showText)
-            }.alert(isPresented: $isBlueRed) {
+            }.alert(isPresented: $isBlueRedShow) {
                 Alert(title: Text(Constants.chooseButtonText), message: Text(Constants.redOrBlueText), primaryButton: .destructive(Text(Constants.redText), action: {
                     self.textToUpdate = Constants.youChooseRedText
                 }), secondaryButton: .default(Text(Constants.blueText), action: {
@@ -88,6 +81,15 @@ struct ContentView: View {
         }
         .padding()
     }
+    
+    // MARK: - Private property
+    
+    @State private var isError = false
+    @State private var isBlueRedShow = false
+    @State private var isActionSheet = false
+    @State private var isActionSheetColor = false
+    @State private var textToUpdate = Constants.helloText
+    @State private var colorText =  Constants.helloText
 }
 
 struct ContentView_Previews: PreviewProvider {
