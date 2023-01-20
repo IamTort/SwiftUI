@@ -14,7 +14,7 @@ struct ContentView: View {
         static let typeOfSpoilersValues = ["Отсутствует", "Карбоновый", "Фанера"]
         static let carCostsValues = [1000000, 3494949, 5445857]
         static let socialString = "Соцсеть"
-        static let activityImageName = "blue"
+        static let activityImageName = "roadmap"
         static let frontWindowTitle = "Тонированная лобовуха"
         static let spolerTitle = "Спойлер"
         static let priceTitle = "Цена"
