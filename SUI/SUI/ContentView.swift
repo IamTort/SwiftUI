@@ -6,7 +6,7 @@ import SwiftUI
 
 /// Экран настроек
 struct ContentView: View {
-    //    MARK: - Private Constatns
+    // MARK: - Private Constatns
     private enum Constants {
         static let onOffBlueToothPickerValue = ["Выкл.", "Вкл."]
         static let wifiPickerValues = ["my_wifi", "thisIsRouter", "122", "daire34"]
@@ -48,12 +48,7 @@ struct ContentView: View {
         static let userNameFontSize = CGFloat(26)
     }
     
-    @State var wifiIndex = Constants.wifiIndexValue
-    @State var blueToothIndex = Constants.onOffPickerBluetoothIndexValue
-    @State var isOnAvia = false
-    @State var isOnVPN = false
-    var wifis = Constants.wifiPickerValues
-    var bluTooths = Constants.onOffBlueToothPickerValue
+    // MARK: - Public property
     
     var body: some View {
         NavigationView {
@@ -73,7 +68,7 @@ struct ContentView: View {
                                 .lineLimit(Constants.userSettingsLineLimitNumber).frame(maxWidth: .infinity, alignment: .leading)
                         }
                         Spacer()
-                        chewron()
+                        chewronView
                     }
                     HStack {
                         Text(Constants.offerAppleText)
@@ -84,7 +79,7 @@ struct ContentView: View {
                             Text(Constants.twoString)
                                 .foregroundColor(.white)
                         }
-                        chewron()
+                        chewronView
                     }
                 }
                 
@@ -98,7 +93,7 @@ struct ContentView: View {
                             Text(Constants.twoString)
                                 .foregroundColor(.white)
                         }
-                        chewron()
+                        chewronView
                     }
                 }
                 
@@ -112,7 +107,7 @@ struct ContentView: View {
                             Text(Constants.oneString)
                                 .foregroundColor(.white)
                         }
-                        chewron()
+                        chewronView
                     }
                     HStack {
                         Text(Constants.memoryText)
@@ -123,7 +118,7 @@ struct ContentView: View {
                             Text(Constants.oneString)
                                 .foregroundColor(.white)
                         }
-                        chewron()
+                        chewronView
                     }
                 }
                 
@@ -157,13 +152,13 @@ struct ContentView: View {
                         Image(Constants.cellImageName).cornerRadius(Constants.imageCornerRadius)
                         Text(Constants.cellTitle)
                         Spacer()
-                        chewron()
+                        chewronView
                     }
                     HStack {
                         Image(Constants.modemImageName).cornerRadius(Constants.imageCornerRadius)
                         Text(Constants.modemTitle)
                         Spacer()
-                        chewron()
+                        chewronView
                     }
                     HStack {
                         Image(Constants.vpnImageName).cornerRadius(Constants.imageCornerRadius)
@@ -175,8 +170,18 @@ struct ContentView: View {
         }
     }
     
-    fileprivate func chewron() -> some View {
-        return Image(systemName: Constants.chevronImageName)
+    // MARK: - Private property
+    
+    @State private var wifiIndex = Constants.wifiIndexValue
+    @State private var blueToothIndex = Constants.onOffPickerBluetoothIndexValue
+    @State private var isOnAvia = false
+    @State private var isOnVPN = false
+    
+    private var wifis = Constants.wifiPickerValues
+    private var bluTooths = Constants.onOffBlueToothPickerValue
+    
+    private var chewronView: some View {
+        Image(systemName: Constants.chevronImageName)
             .resizable()
             .frame(width: CGFloat(Constants.chevronImageFrameWidth), height: CGFloat(Constants.chevronImageFrameHeight))
             .foregroundColor(.gray)
