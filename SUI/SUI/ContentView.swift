@@ -10,9 +10,6 @@ struct ContentView: View {
     // MARK: - Private Constants
     
     private enum Constants {
-        static let carsNames = ["Opel", "Ford", "BMW"]
-        static let typeOfSpoilersValues = ["Отсутствует", "Карбоновый", "Фанера"]
-        static let carCostsValues = [1000000, 3494949, 5445857]
         static let socialString = "Соцсеть"
         static let activityImageName = "roadmap"
         static let frontWindowTitle = "Тонированная лобовуха"
@@ -36,10 +33,9 @@ struct ContentView: View {
         static let imageHeight:CGFloat = 240
         static let cornerRadius:CGFloat = 10
         static let offsetXNumber = -500
-        static let timeNumber = 0.5
-        static let zeroNumber = 0
         static let textSizeNumber: CGFloat = 15
         static let zeroInt = 0
+        static let zeroNumber = 0
         static let zeroFloat: Float = 0
         static let zeroDouble: Double = 0
     }
@@ -52,18 +48,11 @@ struct ContentView: View {
                 Form {
                     Section {
                         VStack {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                                    .fill(.gray)
-                                    .offset(x: CGFloat(offsetX))
-                                    .padding()
-                                carImageView
-                            }
-                            .animation(.spring())
+                            carImageView
+                                .animation(.spring())
                             carPickerView
                             HStack {
-                                Text(Constants.frontWindowTitle)
-                                Toggle(isOn: $isOnEngine) {}
+                                Toggle(Constants.frontWindowTitle, isOn: $isOnEngine)
                             }.padding()
                             HStack {
                                 spoilerPickerView
@@ -73,13 +62,13 @@ struct ContentView: View {
                                 HStack {
                                     Text(Constants.zeroString)
                                     priceSliderView
-                                    Text("\(self.carCost[segmentIndex])")
+                                    Text("\(viewModel.carCost[viewModel.segmentIndex])")
                                 }
                                 Text("\(Int(firstPrice))")
                             }
                         }
                     }
-                    .navigationTitle("\(cars[segmentIndex])")
+                    .navigationTitle("\(viewModel.cars[viewModel.segmentIndex])")
                 }
             }
             HStack {
@@ -93,41 +82,36 @@ struct ContentView: View {
     }
     
     // MARK: - Private Properties
+    @StateObject private var viewModel = CarsViewModel()
     
-    private let cars = Constants.carsNames
-    private let typeOfSpoiler = Constants.typeOfSpoilersValues
     private let customActivity = CustomActivityView(title: Constants.socialString, imageName: Constants.activityImageName) {
     }
     @State private var pickerIndex: Float = Constants.zeroFloat
-    @State private var carCost = Constants.carCostsValues
     @State private var firstPrice: Double = Constants.zeroDouble
-    @State private var offsetX = Constants.zeroInt
     @State private var isOnEngine = false
     @State private var isCall = false
     @State private var isMyChoose = false
-    @State private var segmentIndex = Constants.zeroInt
-    @State private var vEngineIndex = Constants.zeroInt
     @State private var isEditingSlider = false
     @State private var isSharePresented = false
     
     private var carImageView: some View {
-        Image(cars[segmentIndex])
+        Image(viewModel.cars[viewModel.segmentIndex])
             .resizable()
             .frame(width: Constants.imageWidth, height: Constants.imageHeight)
-            .offset(x: CGFloat(offsetX))
+            .offset(x: CGFloat(viewModel.offsetX))
             .cornerRadius(Constants.cornerRadius)
     }
     
     private var carPickerView: some View {
         Picker(selection: Binding(get: {
-            self.segmentIndex
+            viewModel.segmentIndex
         }, set: { newValue in
-            self.segmentIndex = newValue
-            self.offsetX = Constants.offsetXNumber
-            self.moveBack()
+            viewModel.segmentIndex = newValue
+            viewModel.offsetX = Constants.offsetXNumber
+            viewModel.moveBack()
         }), label: Text("")) {
-            ForEach(Constants.zeroNumber ..< cars.count) {
-                Text(self.cars[$0]).tag($0)
+            ForEach(Constants.zeroNumber ..< viewModel.cars.count) {
+                Text(viewModel.cars[$0]).tag($0)
             }
         }
         .pickerStyle(SegmentedPickerStyle())
@@ -135,9 +119,9 @@ struct ContentView: View {
     }
     
     private var spoilerPickerView: some View {
-        Picker(selection: $vEngineIndex) {
-            ForEach(Constants.zeroNumber ..< typeOfSpoiler.count) {
-                Text(self.typeOfSpoiler[$0])
+        Picker(selection: $viewModel.vEngineIndex) {
+            ForEach(Constants.zeroNumber ..< viewModel.typeOfSpoiler.count) {
+                Text(viewModel.typeOfSpoiler[$0])
             }
         } label: {
             Text(Constants.spolerTitle)
@@ -150,7 +134,7 @@ struct ContentView: View {
             firstPrice
         }, set: { newValue in
             firstPrice = newValue
-        }), in: 0...Double(carCost[segmentIndex]))
+        }), in: 0...Double(viewModel.carCost[viewModel.segmentIndex]))
     }
     
     private var callButtonView: some View {
@@ -171,7 +155,7 @@ struct ContentView: View {
             Text(Constants.chooseButtonName).font(.system(size: Constants.textSizeNumber))
                 .padding()
         }.actionSheet(isPresented: $isMyChoose) {
-            ActionSheet(title: Text(Constants.goodChooseString), message: Text("\(cars[segmentIndex]) \(Constants.amazingCarString)"), buttons: [.cancel()])
+            ActionSheet(title: Text(Constants.goodChooseString), message: Text("\(viewModel.cars[viewModel.segmentIndex]) \(Constants.amazingCarString)"), buttons: [.cancel()])
         }
     }
     
@@ -184,21 +168,13 @@ struct ContentView: View {
             
             let text = """
                 \(Constants.dreamString)
-                \(Constants.modelString) \(cars[segmentIndex])
+                \(Constants.modelString) \(viewModel.cars[viewModel.segmentIndex])
                 \(Constants.windowString) \(isOnEngine)
-                \(Constants.spoilerString) \(typeOfSpoiler[vEngineIndex])
+                \(Constants.spoilerString) \(viewModel.typeOfSpoiler[viewModel.vEngineIndex])
                 \(Constants.pledgeString) \(firstPrice) \(Constants.rublesString)
             """
             ActivityView(activityItems: [text], applicationActivities: [self.customActivity])
         }.padding()
-    }
-    
-    // MARK: - Private method
-    
-    private func moveBack() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeNumber) {
-            self.offsetX = Constants.zeroNumber
-        }
     }
 }
 
