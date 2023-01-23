@@ -22,7 +22,7 @@ struct BasketView: View {
         static let typeBaselineOffsetNumber: CGFloat = 30
         static let fontSizeNumber: CGFloat = 25
         static let minSpacerNumber: CGFloat = 30
-        static let widthButtonNumber: CGFloat = 200
+        static let widthButtonNumber: CGFloat = 250
         static let heightButtonNumber: CGFloat = 50
         static let cornerRadiusButtonNumber: CGFloat = 10
         static let badgeNumber = 0

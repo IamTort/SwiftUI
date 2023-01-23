@@ -50,7 +50,7 @@ struct PurchaseView: View {
             }
             Spacer(minLength: Constants.lengthSpacerNumber)
             VStack {
-                createOffer(imageName: Constants.yearString, typeText: Constants.yearString, priceText: Constants.yearPriceString)
+                createOffer(imageName: Constants.oneYearImageName, typeText: Constants.yearString, priceText: Constants.yearPriceString)
             }
         }
     }
