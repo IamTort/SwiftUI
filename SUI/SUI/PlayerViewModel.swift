@@ -24,10 +24,14 @@ final class PlayerViewModel: ObservableObject {
     
     @Published var maxDuration = Constants.stubDouble
     @Published var currentDuration: Double = Constants.stubDouble
-    var player: AVAudioPlayer?
+    @Published var progress: Float = 0
+    @Published var name = Constants.songsValues[0]
+    @Published var isSend = false
+    @Published var isSave = false
     
     // MARK: - Private properties
     
+    private var player: AVAudioPlayer?
     private var songs = Constants.songsValues
     private var songIndex = Constants.songIndex
     

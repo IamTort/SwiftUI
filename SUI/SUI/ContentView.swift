@@ -10,7 +10,6 @@ struct ContentView: View {
     // MARK: - Private Constants
     
     private enum Constants {
-        static let songName = "gori"
         static let songTypeString = "mp3"
         static let shareButtonText = "Поделиться"
         static let shareButtonMessageText = "Поделиться песней?"
@@ -38,15 +37,15 @@ struct ContentView: View {
         VStack {
             HStack {
                 Spacer()
-                shareButton
-                saveButton
+                shareButtonView
+                saveButtonView
             }
             
             Image(viewModel.setupPhotoName())
                 .resizable()
                 .cornerRadius(Constants.imageCornerRadius)
                 .frame(width: Constants.imageWidth, height: Constants.imageHeight)
-            timeSlider
+            timeSliderView
             
             HStack {
                 Text(verbatim: viewModel.getTime().formatted(.dateTime.minute().second())).padding()
@@ -55,13 +54,13 @@ struct ContentView: View {
             }
             
             HStack {
-                startButton
-                stopButton
+                startButtonView
+                stopButtonView
             }
             
             HStack {
-                previousSongButton
-                nextSongButton
+                previousSongButtonView
+                nextSongButtonView
             }
         }
     }
@@ -69,34 +68,32 @@ struct ContentView: View {
     // MARK: - Private property
     
     @StateObject private var viewModel = PlayerViewModel()
-    @State private var progress: Float = 0
-    @State private var name = Constants.songName
-    @State private var isSend = false
-    @State private var isSave = false
     
-    private var shareButton: some View {
+    private var shareButtonView: some View {
         Button {
-            isSend = true
+            viewModel.isSend = true
         } label: {
             Text(Constants.shareButtonText)
                 .padding()
-        }.alert(isPresented: $isSend) {
+        }
+        .alert(isPresented: $viewModel.isSend) {
             Alert(title: Text(Constants.shareButtonMessageText), message: nil, primaryButton: .cancel(), secondaryButton: .default(Text(Constants.yesText)))
         }
     }
     
-    private var saveButton: some View {
+    private var saveButtonView: some View {
         Button {
-            isSave = true
+            viewModel.isSave = true
         } label: {
             Text(Constants.saveButtonTitle)
                 .padding()
-        }.actionSheet(isPresented: $isSave) {
-            ActionSheet(title: Text(Constants.actionSheetTitle), message: Text("\(name) \(Constants.actionSheetMessageString)"), buttons: [.cancel()])
+        }
+        .actionSheet(isPresented: $viewModel.isSave) {
+            ActionSheet(title: Text(Constants.actionSheetTitle), message: Text("\(viewModel.name) \(Constants.actionSheetMessageString)"), buttons: [.cancel()])
         }
     }
     
-    private var timeSlider: some View {
+    private var timeSliderView: some View {
         Slider(value: Binding(get: {
             Double(viewModel.currentDuration)
         }, set: { newValue in
@@ -105,7 +102,7 @@ struct ContentView: View {
         }), in: 0...viewModel.maxDuration)
     }
     
-    private var startButton: some View {
+    private var startButtonView: some View {
         Button {
             viewModel.play()
         } label: {
@@ -117,7 +114,7 @@ struct ContentView: View {
         .cornerRadius(Constants.butonCornerRadius)
     }
     
-    private var stopButton: some View {
+    private var stopButtonView: some View {
         Button {
             viewModel.stop()
         } label: {
@@ -129,7 +126,7 @@ struct ContentView: View {
         .cornerRadius(Constants.butonCornerRadius)
     }
     
-    private var previousSongButton: some View {
+    private var previousSongButtonView: some View {
         Button {
             viewModel.previousSong()
         } label: {
@@ -141,7 +138,7 @@ struct ContentView: View {
         .cornerRadius(Constants.butonCornerRadius)
     }
     
-    private var nextSongButton: some View {
+    private var nextSongButtonView: some View {
         Button {
             viewModel.nextSong()
         } label: {
