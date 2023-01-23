@@ -57,35 +57,37 @@ struct ContentView: View {
                                     .fill(.gray)
                                     .offset(x: CGFloat(offsetX))
                                     .padding()
-                                carImage
-                            }.animation(.spring())
-                            carPicker
+                                carImageView
+                            }
+                            .animation(.spring())
+                            carPickerView
                             HStack {
                                 Text(Constants.frontWindowTitle)
                                 Toggle(isOn: $isOnEngine) {}
                             }.padding()
                             HStack {
-                                spoilerPicker
+                                spoilerPickerView
                             }
                             VStack{
                                 Text(Constants.priceTitle).padding()
                                 HStack {
                                     Text(Constants.zeroString)
-                                    priceSlider
+                                    priceSliderView
                                     Text("\(self.carCost[segmentIndex])")
                                 }
                                 Text("\(Int(firstPrice))")
                             }
                         }
-                    }.navigationTitle("\(cars[segmentIndex])")
+                    }
+                    .navigationTitle("\(cars[segmentIndex])")
                 }
             }
             HStack {
-                callButton
+                callButtonView
                 Spacer()
-                chooseButton
+                chooseButtonView
                 Spacer()
-                activityButton
+                activityButtonView
             }
         }
     }
@@ -108,7 +110,7 @@ struct ContentView: View {
     @State private var isEditingSlider = false
     @State private var isSharePresented = false
     
-    private var carImage: some View {
+    private var carImageView: some View {
         Image(cars[segmentIndex])
             .resizable()
             .frame(width: Constants.imageWidth, height: Constants.imageHeight)
@@ -116,7 +118,7 @@ struct ContentView: View {
             .cornerRadius(Constants.cornerRadius)
     }
     
-    private var carPicker: some View {
+    private var carPickerView: some View {
         Picker(selection: Binding(get: {
             self.segmentIndex
         }, set: { newValue in
@@ -132,17 +134,18 @@ struct ContentView: View {
         .padding()
     }
     
-    private var spoilerPicker: some View {
+    private var spoilerPickerView: some View {
         Picker(selection: $vEngineIndex) {
             ForEach(Constants.zeroNumber ..< typeOfSpoiler.count) {
                 Text(self.typeOfSpoiler[$0])
             }
         } label: {
             Text(Constants.spolerTitle)
-        }.padding()
+        }
+        .padding()
     }
     
-    private var priceSlider: some View {
+    private var priceSliderView: some View {
         Slider(value: Binding(get: {
             firstPrice
         }, set: { newValue in
@@ -150,7 +153,7 @@ struct ContentView: View {
         }), in: 0...Double(carCost[segmentIndex]))
     }
     
-    private var callButton: some View {
+    private var callButtonView: some View {
         Button {
             isCall = true
         } label: {
@@ -161,7 +164,7 @@ struct ContentView: View {
         }
     }
     
-    private var chooseButton: some View {
+    private var chooseButtonView: some View {
         Button {
             isMyChoose = true
         } label: {
@@ -172,7 +175,7 @@ struct ContentView: View {
         }
     }
     
-    private var activityButton: some View {
+    private var activityButtonView: some View {
         Button {
             self.isSharePresented = true
         } label: {
