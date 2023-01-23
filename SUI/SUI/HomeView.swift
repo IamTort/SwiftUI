@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// Главный экран
 struct HomeView: View {
     
     // MARK: - Private Constants
@@ -43,7 +44,7 @@ struct HomeView: View {
             flagImageView
             Spacer()
             VStack {
-                Toggle(Constants.emptyString, isOn: $isOn)
+                Toggle(Constants.emptyString, isOn: $viewModel.isOn)
                     .toggleStyle(CustomToggle())
             }
             Spacer()
@@ -61,7 +62,7 @@ struct HomeView: View {
     
     // MARK: - Private property
     
-    @State private var isOn = false
+    @StateObject private var viewModel = HomeViewModel()
     
     private var alarmTextView: some View {
         Text(Constants.alarmString)

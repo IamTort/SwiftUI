@@ -58,6 +58,8 @@ struct MainTabView: View {
     @State private var tabSelected = Constants.mainPageTagNumber
 }
 
+
+/// Представление тейбл вью
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabView().environment(\.colorScheme, .dark)

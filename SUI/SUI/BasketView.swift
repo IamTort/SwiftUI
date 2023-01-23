@@ -32,27 +32,14 @@ struct BasketView: View {
     
     var body: some View {
         VStack {
-            Text(Constants.titleString)
-                .font(.largeTitle)
-                .bold()
-                .baselineOffset(Constants.titleBaselineOffsetNumber)
+            titleTextView
             Spacer()
-            Text(Constants.typeString)
-                .baselineOffset(Constants.typeBaselineOffsetNumber)
-                .font(.system(size: Constants.fontSizeNumber, weight: .light, design: .default))
-            
-            Text(userBuy.type)
-                .baselineOffset(Constants.typeBaselineOffsetNumber)
-                .font(.title)
-            
+            descriptionTextView
+            typeTextView
             Spacer()
             VStack {
-                Text(Constants.priceString)
-                    .baselineOffset(Constants.typeBaselineOffsetNumber)
-                    .font(.system(size: Constants.fontSizeNumber, weight: .light, design: .default))
-                Text(userBuy.price)
-                    .baselineOffset(Constants.typeBaselineOffsetNumber)
-                    .font(.title)
+                priceTitleTextView
+                priceTextView
             }
             Spacer()
             buyButtonView
@@ -65,7 +52,38 @@ struct BasketView: View {
     
     @EnvironmentObject private var userBuy: UserBuyRateViewModel
     
-    @State private var isBuy = false
+    @StateObject private var viewModel = BasketViewModel()
+
+    private var titleTextView: some View {
+        Text(Constants.titleString)
+            .font(.largeTitle)
+            .bold()
+            .baselineOffset(Constants.titleBaselineOffsetNumber)
+    }
+
+    private var descriptionTextView: some View {
+        Text(Constants.typeString)
+            .baselineOffset(Constants.typeBaselineOffsetNumber)
+            .font(.system(size: Constants.fontSizeNumber, weight: .light, design: .default))
+    }
+    
+    private var typeTextView: some View {
+        Text(userBuy.type)
+            .baselineOffset(Constants.typeBaselineOffsetNumber)
+            .font(.title)
+    }
+    
+    private var priceTitleTextView: some View {
+        Text(Constants.priceString)
+            .baselineOffset(Constants.typeBaselineOffsetNumber)
+            .font(.system(size: Constants.fontSizeNumber, weight: .light, design: .default))
+    }
+    
+    private var priceTextView: some View {
+        Text(userBuy.price)
+            .baselineOffset(Constants.typeBaselineOffsetNumber)
+            .font(.title)
+    }
     
     private var cancelButtonView: some View {
         Button {
@@ -86,7 +104,7 @@ struct BasketView: View {
     private var buyButtonView: some View {
         Button {
             guard !userBuy.type.isEmpty else { return }
-            self.isBuy = true
+            viewModel.isBuyButtonPressed = true
         } label: {
             Text(Constants.buyButtonTitle)
                 .foregroundColor(.white)
@@ -95,7 +113,7 @@ struct BasketView: View {
                 .frame(width: Constants.widthButtonNumber, height: Constants.heightButtonNumber, alignment: .center)
                 .background(.blue)
                 .cornerRadius(Constants.cornerRadiusButtonNumber)
-        }.alert(isPresented: $isBuy) {
+        }.alert(isPresented: $viewModel.isBuyButtonPressed) {
             Alert(title: Text(Constants.alertTitleString), message: Text("\(Constants.alertMessageString)\(userBuy.type)"), dismissButton: .cancel())
         }
     }

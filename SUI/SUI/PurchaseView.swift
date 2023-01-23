@@ -37,9 +37,7 @@ struct PurchaseView: View {
         ScrollView {
             Text(Constants.titleString).font(.largeTitle)
             Spacer(minLength: Constants.topSpacerNumber)
-            Text(Constants.descriptionString)
-                .fontWeight(.light)
-                .kerning(Constants.kerningNumber)
+            descriptionTextView
             Spacer(minLength: Constants.lengthSpacerNumber)
             VStack {
                 createOffer(imageName: Constants.oneDayImageName, typeText: Constants.vacationString, priceText: Constants.dayPriceString)
@@ -58,6 +56,12 @@ struct PurchaseView: View {
     // MARK: - Private Properties
     
     @EnvironmentObject private var userBuy: UserBuyRateViewModel
+    
+    private var descriptionTextView: some View {
+        Text(Constants.descriptionString)
+            .fontWeight(.light)
+            .kerning(Constants.kerningNumber)
+    }
     
     // MARK: - Private methods
     
