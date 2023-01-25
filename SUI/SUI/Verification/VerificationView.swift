@@ -176,14 +176,14 @@ struct VerificationView: View {
 
     private var continueButtonView: some View {
         Button(Constants.continueButtonName) {
-            verificationViewModel.isContinueVerification = true
+            verificationViewModel.isContinueVerificationShown = true
         }
         .frame(width: 320, height: 80)
         .background(.red)
         .foregroundColor(.white)
         .font(.system(size: 28, weight: .bold, design: .default))
         .cornerRadius(40)
-        .actionSheet(isPresented: $verificationViewModel.isContinueVerification) {
+        .actionSheet(isPresented: $verificationViewModel.isContinueVerificationShown) {
             ActionSheet(
                 title: Text(Constants.emptyString),
                 message: Text(
@@ -215,7 +215,7 @@ struct VerificationView: View {
 
     private var sendCodeButtonView: some View {
         Button {
-            verificationViewModel.isAlertShowCode = true
+            verificationViewModel.isAlertCodeShown = true
             verificationViewModel.createRandomCode()
 
         } label: {
@@ -223,7 +223,7 @@ struct VerificationView: View {
                 .font(.system(size: 22))
                 .foregroundColor(.purple)
         }
-        .alert(isPresented: $verificationViewModel.isAlertShowCode) {
+        .alert(isPresented: $verificationViewModel.isAlertCodeShown) {
             Alert(
                 title: Text(Constants.alertTitle),
                 message:

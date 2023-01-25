@@ -1,10 +1,10 @@
-// ChairView.swift
+// ProductView.swift
 // Copyright © RoadMap. All rights reserved.
 
 import SwiftUI
 
-/// Экран со стулом
-struct ChairView: View {
+/// Экран описания товара
+struct ProductView: View {
     // MARK: - Private Constants
 
     private enum Constants {
@@ -18,6 +18,9 @@ struct ChairView: View {
         static let bagImageName = "bag"
         static let descriptionTitle = "Description"
         static let tenSpaceNumber: CGFloat = 10
+        static let progressViewText = "Chars ="
+        static let progressViewScoreText = "/ 150"
+        static let charCountNumber = 150
     }
 
     // MARK: - Public Properties
@@ -35,9 +38,10 @@ struct ChairView: View {
                         descriptionTextView
                         Spacer()
                     }
+                    charProgressView
                     textEditorView
                 }
-                Spacer(minLength: 220)
+                Spacer(minLength: 130)
             }
             .navigationBarBackButtonHidden(true)
         }
@@ -46,7 +50,7 @@ struct ChairView: View {
     // MARK: - Private Properties
 
     @ObservedObject private var keyboard = KeyboardResponder()
-    @StateObject private var chairViewModel = ChairViewModel()
+    @StateObject private var chairViewModel = ProductViewModel()
 
     private var navigationBarView: some View {
         Rectangle()
@@ -79,7 +83,6 @@ struct ChairView: View {
                     heartImageView
                 }
                 .padding(.horizontal, 30)
-
                 HStack {
                     priceTextView
                     Spacer()
@@ -145,5 +148,31 @@ struct ChairView: View {
             .frame(width: UIScreen.main.bounds.width - 60, height: 120)
             .offset(y: -20)
             .padding(.bottom, keyboard.currentHeight)
+            .onChange(of: chairViewModel.text) { text in
+                chairViewModel.totalChars = chairViewModel.text.count
+                if chairViewModel.totalChars <= Constants.charCountNumber {
+                    chairViewModel.lastText = text
+                } else {
+                    chairViewModel.text = chairViewModel.lastText
+                }
+            }
+    }
+
+    private var charProgressView: some View {
+        ProgressView(
+            "\(Constants.progressViewText)" + " \(chairViewModel.text.count) \(Constants.progressViewScoreText)",
+            value: Double(chairViewModel.text.count),
+            total: Double(Constants.charCountNumber)
+        )
+        .frame(width: CGFloat(Constants.charCountNumber))
+        .padding()
+        .foregroundColor(.blue)
+        .accentColor(.blue)
+    }
+}
+
+struct ChairView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductView()
     }
 }

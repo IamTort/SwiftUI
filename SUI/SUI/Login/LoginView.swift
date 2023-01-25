@@ -88,7 +88,6 @@ struct LoginView: View {
                         width: (UIScreen.main.bounds.width - 80) / Constants.twoNumber,
                         height: Constants.logoViewHeight
                     )
-
                 Rectangle()
                     .foregroundColor(Color(Constants.lightGrayColorName))
                     .frame(
@@ -159,7 +158,7 @@ struct LoginView: View {
         Button(Constants.singUpButtonTitle) {
             loginViewModel.checkInfo()
         }
-        .alert(isPresented: $loginViewModel.isPasswordAlertShow) {
+        .alert(isPresented: $loginViewModel.isPasswordAlertShown) {
             Alert(
                 title: Text(Constants.alertTitle),
                 message: Text(Constants.alertMessageString),
@@ -181,13 +180,13 @@ struct LoginView: View {
 
     private var alertButtonView: some View {
         Button {
-            loginViewModel.isAlertShow = true
+            loginViewModel.isAlertShown = true
         } label: {
             Text(Constants.questionText)
                 .bold()
                 .foregroundColor(Color(Constants.darkPurpleColorName))
         }
-        .alert(isPresented: $loginViewModel.isAlertShow) {
+        .alert(isPresented: $loginViewModel.isAlertShown) {
             Alert(
                 title: Text(Constants.alertDoTitle),
                 message: Text(Constants.alertMessageDoString),
@@ -200,7 +199,7 @@ struct LoginView: View {
 
     private var singUpNavigationLinkView: some View {
         NavigationLink(isActive: $loginViewModel.isShowChairScreen) {
-            ChairView()
+            ProductView()
         } label: {
             EmptyView()
         }

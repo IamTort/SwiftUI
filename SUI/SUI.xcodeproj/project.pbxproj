@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		FA565D40298104BA0007850A /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D3F298104BA0007850A /* RoundedCorner.swift */; };
-		FA565D42298105D90007850A /* View+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D41298105D90007850A /* View+Extention.swift */; };
+		FA565D42298105D90007850A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D41298105D90007850A /* View+Extension.swift */; };
 		FA565D4429810CDC0007850A /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D4329810CDC0007850A /* MainViewModel.swift */; };
 		FA565D4629810CFF0007850A /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D4529810CFF0007850A /* TextFieldModifier.swift */; };
 		FA565D4829810D3B0007850A /* TextSquireFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D4729810D3B0007850A /* TextSquireFieldModifier.swift */; };
 		FA565D4A29811AF60007850A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D4929811AF60007850A /* LoginViewModel.swift */; };
-		FA565D4C29812B120007850A /* ChairViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D4B29812B120007850A /* ChairViewModel.swift */; };
+		FA565D4C29812B120007850A /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D4B29812B120007850A /* ProductViewModel.swift */; };
 		FA565D4E2981303E0007850A /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D4D2981303E0007850A /* VerificationViewModel.swift */; };
-		FA565D54298161BB0007850A /* String+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D53298161BB0007850A /* String+Extention.swift */; };
-		FAAAADD929803E2600146C57 /* ChairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAADD829803E2600146C57 /* ChairView.swift */; };
+		FA565D54298161BB0007850A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D53298161BB0007850A /* String+Extension.swift */; };
+		FAAAADD929803E2600146C57 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAADD829803E2600146C57 /* ProductView.swift */; };
 		FAAAADDB29803E5800146C57 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAADDA29803E5800146C57 /* VerificationView.swift */; };
 		FAAAADDD29803E9000146C57 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAADDC29803E9000146C57 /* LoginView.swift */; };
 		FAAAADDF2980593600146C57 /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAADDE2980593600146C57 /* PhoneNumberFormatter.swift */; };
@@ -29,15 +29,15 @@
 
 /* Begin PBXFileReference section */
 		FA565D3F298104BA0007850A /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
-		FA565D41298105D90007850A /* View+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extention.swift"; sourceTree = "<group>"; };
+		FA565D41298105D90007850A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		FA565D4329810CDC0007850A /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		FA565D4529810CFF0007850A /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		FA565D4729810D3B0007850A /* TextSquireFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSquireFieldModifier.swift; sourceTree = "<group>"; };
 		FA565D4929811AF60007850A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		FA565D4B29812B120007850A /* ChairViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChairViewModel.swift; sourceTree = "<group>"; };
+		FA565D4B29812B120007850A /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		FA565D4D2981303E0007850A /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
-		FA565D53298161BB0007850A /* String+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extention.swift"; sourceTree = "<group>"; };
-		FAAAADD829803E2600146C57 /* ChairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChairView.swift; sourceTree = "<group>"; };
+		FA565D53298161BB0007850A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		FAAAADD829803E2600146C57 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		FAAAADDA29803E5800146C57 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		FAAAADDC29803E9000146C57 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FAAAADDE2980593600146C57 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
@@ -69,13 +69,13 @@
 			path = Verification;
 			sourceTree = "<group>";
 		};
-		FA565D5029815FE50007850A /* Chair */ = {
+		FA565D5029815FE50007850A /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				FAAAADD829803E2600146C57 /* ChairView.swift */,
-				FA565D4B29812B120007850A /* ChairViewModel.swift */,
+				FAAAADD829803E2600146C57 /* ProductView.swift */,
+				FA565D4B29812B120007850A /* ProductViewModel.swift */,
 			);
-			path = Chair;
+			path = Product;
 			sourceTree = "<group>";
 		};
 		FA565D5129815FF20007850A /* Login */ = {
@@ -119,14 +119,14 @@
 				FA565D52298160020007850A /* Main */,
 				FA565D5129815FF20007850A /* Login */,
 				FA565D4F29815FD50007850A /* Verification */,
-				FA565D5029815FE50007850A /* Chair */,
+				FA565D5029815FE50007850A /* Product */,
 				FA565D4529810CFF0007850A /* TextFieldModifier.swift */,
 				FA565D4729810D3B0007850A /* TextSquireFieldModifier.swift */,
-				FA565D41298105D90007850A /* View+Extention.swift */,
+				FA565D41298105D90007850A /* View+Extension.swift */,
 				FA565D3F298104BA0007850A /* RoundedCorner.swift */,
 				FAAAADE0298075B300146C57 /* KeyboardResponder.swift */,
 				FAAAADDE2980593600146C57 /* PhoneNumberFormatter.swift */,
-				FA565D53298161BB0007850A /* String+Extention.swift */,
+				FA565D53298161BB0007850A /* String+Extension.swift */,
 				FAC67BF62975F2F700D22F4D /* Assets.xcassets */,
 				FAC67BF82975F2F700D22F4D /* Preview Content */,
 			);
@@ -254,13 +254,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA565D40298104BA0007850A /* RoundedCorner.swift in Sources */,
-				FA565D54298161BB0007850A /* String+Extention.swift in Sources */,
+				FA565D54298161BB0007850A /* String+Extension.swift in Sources */,
 				FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */,
-				FA565D4C29812B120007850A /* ChairViewModel.swift in Sources */,
+				FA565D4C29812B120007850A /* ProductViewModel.swift in Sources */,
 				FA565D4E2981303E0007850A /* VerificationViewModel.swift in Sources */,
-				FAAAADD929803E2600146C57 /* ChairView.swift in Sources */,
+				FAAAADD929803E2600146C57 /* ProductView.swift in Sources */,
 				FAAAADE1298075B300146C57 /* KeyboardResponder.swift in Sources */,
-				FA565D42298105D90007850A /* View+Extention.swift in Sources */,
+				FA565D42298105D90007850A /* View+Extension.swift in Sources */,
 				FA565D4829810D3B0007850A /* TextSquireFieldModifier.swift in Sources */,
 				FA565D4429810CDC0007850A /* MainViewModel.swift in Sources */,
 				FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */,

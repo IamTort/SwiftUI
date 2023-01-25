@@ -73,7 +73,7 @@ struct MainView: View {
 
     private var navigationLinkView: some View {
         NavigationLink(isActive: $mainViewModel.isShowChair) {
-            ChairView()
+            ProductView()
         } label: {
             EmptyView()
         }
@@ -98,7 +98,7 @@ struct MainView: View {
 
     private var asyncImageView: some View {
         AsyncImage(
-            url: URL(string: mainViewModel.urls[Int.random(in: 0 ... 6)])
+            url: mainViewModel.generateUrl()
         ) { phase in
             switch phase {
             case .empty:

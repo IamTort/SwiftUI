@@ -18,8 +18,8 @@ final class LoginViewModel: ObservableObject {
 
     @Published var loginText = Constants.emptyString
     @Published var passwordText = Constants.emptyString
-    @Published var isAlertShow = false
-    @Published var isPasswordAlertShow = false
+    @Published var isAlertShown = false
+    @Published var isPasswordAlertShown = false
     @Published var isShowVerificationScreen = false
     @Published var isShowChairScreen = false
 
@@ -29,7 +29,7 @@ final class LoginViewModel: ObservableObject {
         guard passwordText.count > Constants.minimumPasswordCountString,
               passwordText.count < Constants.maximumPasswordCountString
         else {
-            isPasswordAlertShow = true
+            isPasswordAlertShown = true
             return
         }
         isShowChairScreen = true

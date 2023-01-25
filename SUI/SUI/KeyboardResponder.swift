@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-/// поднятие экрана при появлении клавиатуры
+/// Поднятие экрана при появлении клавиатуры
 final class KeyboardResponder: ObservableObject {
     // MARK: - Private property
 

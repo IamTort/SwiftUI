@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-/// модификатор для текстфилда пин-кода
+/// Mодификатор для текстфилда пин-кода
 struct TextSquireFieldModifier: ViewModifier {
     func body(content: Content) -> some View {
         content

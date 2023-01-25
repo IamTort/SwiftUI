@@ -1,9 +1,9 @@
-// View+Extention.swift
+// View+Extension.swift
 // Copyright © RoadMap. All rights reserved.
 
 import SwiftUI
 
-/// расширение вью
+/// Расширение вью
 extension View {
     // MARK: - Public methods
 

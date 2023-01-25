@@ -19,8 +19,8 @@ final class VerificationViewModel: ObservableObject {
 
     @Published var isHidden = true
     @Published var value: Float = Constants.startValueNumber
-    @Published var isContinueVerification = false
-    @Published var isAlertShowCode = false
+    @Published var isContinueVerificationShown = false
+    @Published var isAlertCodeShown = false
 
     @Published var firstNumber = Constants.emptyString
     @Published var secondNumber = Constants.emptyString

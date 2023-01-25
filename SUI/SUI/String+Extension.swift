@@ -1,9 +1,9 @@
-// String+Extention.swift
+// String+Extension.swift
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
 
-/// расширение строки
+/// Расширение строки для создания маски телефонного номера
 extension String {
     // MARK: - Private Constants
 

@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-/// модификатор для текстфилда
+/// Mодификатор для текстфилда
 struct TextFieldModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
