@@ -113,7 +113,8 @@ struct BasketView: View {
                 .frame(width: Constants.widthButtonNumber, height: Constants.heightButtonNumber, alignment: .center)
                 .background(.blue)
                 .cornerRadius(Constants.cornerRadiusButtonNumber)
-        }.alert(isPresented: $viewModel.isBuyButtonPressed) {
+        }
+        .alert(isPresented: $viewModel.isBuyButtonPressed) {
             Alert(title: Text(Constants.alertTitleString), message: Text("\(Constants.alertMessageString)\(userBuy.type)"), dismissButton: .cancel())
         }
     }

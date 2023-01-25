@@ -40,15 +40,15 @@ struct PurchaseView: View {
             descriptionTextView
             Spacer(minLength: Constants.lengthSpacerNumber)
             VStack {
-                createOffer(imageName: Constants.oneDayImageName, typeText: Constants.vacationString, priceText: Constants.dayPriceString)
+                makeOfferView(imageName: Constants.oneDayImageName, typeText: Constants.vacationString, priceText: Constants.dayPriceString)
             }
             Spacer(minLength: Constants.lengthSpacerNumber)
             VStack {
-                createOffer(imageName: Constants.thirtyDaysImageName, typeText: Constants.standardString, priceText: Constants.standardPriceString)
+                makeOfferView(imageName: Constants.thirtyDaysImageName, typeText: Constants.standardString, priceText: Constants.standardPriceString)
             }
             Spacer(minLength: Constants.lengthSpacerNumber)
             VStack {
-                createOffer(imageName: Constants.oneYearImageName, typeText: Constants.yearString, priceText: Constants.yearPriceString)
+                makeOfferView(imageName: Constants.oneYearImageName, typeText: Constants.yearString, priceText: Constants.yearPriceString)
             }
         }
     }
@@ -65,7 +65,7 @@ struct PurchaseView: View {
     
     // MARK: - Private methods
     
-    private func createOffer(imageName: String, typeText: String, priceText: String) -> some View {
+    private func makeOfferView(imageName: String, typeText: String, priceText: String) -> some View {
         return VStack {
             Image(imageName)
                 .resizable()

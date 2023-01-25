@@ -2,11 +2,10 @@
 //  SUI
 //  Created by angelina on 23.01.2023.
 
-
 import SwiftUI
 
 /// Кастомный переключатель
-struct CustomToggle: ToggleStyle {
+struct CustomToggleStyle: ToggleStyle {
     
     // MARK: - Private Constants
     

@@ -45,7 +45,7 @@ struct HomeView: View {
             Spacer()
             VStack {
                 Toggle(Constants.emptyString, isOn: $viewModel.isOn)
-                    .toggleStyle(CustomToggle())
+                    .toggleStyle(CustomToggleStyle())
             }
             Spacer()
             HStack {

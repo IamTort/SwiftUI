@@ -47,9 +47,10 @@ struct MainTabView: View {
                 .tag(Constants.basketTagNumber)
                 .badge(userBuy.badge)
             
-        }.font(.headline)
-            .accentColor(.red)
-            .environmentObject(userBuy)
+        }
+        .font(.headline)
+        .accentColor(.red)
+        .environmentObject(userBuy)
     }
     
     // MARK: - Private property

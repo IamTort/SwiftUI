@@ -15,7 +15,7 @@
 		FAC67BF52975F2F600D22F4D /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF42975F2F600D22F4D /* MainTabView.swift */; };
 		FAC67BF72975F2F700D22F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF62975F2F700D22F4D /* Assets.xcassets */; };
 		FAC67BFA2975F2F700D22F4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF92975F2F700D22F4D /* Preview Assets.xcassets */; };
-		FAF786E7297E842F003F2CA9 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF786E6297E842F003F2CA9 /* CustomToggle.swift */; };
+		FAF786E7297E842F003F2CA9 /* CustomToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF786E6297E842F003F2CA9 /* CustomToggleStyle.swift */; };
 		FAF786EB297E98E9003F2CA9 /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF786EA297E98E9003F2CA9 /* BasketViewModel.swift */; };
 		FAF786ED297E9B7B003F2CA9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF786EC297E9B7A003F2CA9 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -30,7 +30,7 @@
 		FAC67BF42975F2F600D22F4D /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		FAC67BF62975F2F700D22F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC67BF92975F2F700D22F4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FAF786E6297E842F003F2CA9 /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
+		FAF786E6297E842F003F2CA9 /* CustomToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggleStyle.swift; sourceTree = "<group>"; };
 		FAF786EA297E98E9003F2CA9 /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
 		FAF786EC297E9B7A003F2CA9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +73,7 @@
 				FA13B9A2297DE95E00B33ACC /* BasketView.swift */,
 				FAF786EA297E98E9003F2CA9 /* BasketViewModel.swift */,
 				FA13B9A0297DE8A100B33ACC /* UserBuyRateViewModel.swift */,
-				FAF786E6297E842F003F2CA9 /* CustomToggle.swift */,
+				FAF786E6297E842F003F2CA9 /* CustomToggleStyle.swift */,
 				FAC67BF62975F2F700D22F4D /* Assets.xcassets */,
 				FAC67BF82975F2F700D22F4D /* Preview Content */,
 			);
@@ -160,7 +160,7 @@
 			files = (
 				FA13B9A3297DE95E00B33ACC /* BasketView.swift in Sources */,
 				FAF786ED297E9B7B003F2CA9 /* HomeViewModel.swift in Sources */,
-				FAF786E7297E842F003F2CA9 /* CustomToggle.swift in Sources */,
+				FAF786E7297E842F003F2CA9 /* CustomToggleStyle.swift in Sources */,
 				FAC67BF52975F2F600D22F4D /* MainTabView.swift in Sources */,
 				FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */,
 				FA13B9A7297DE9C200B33ACC /* HomeView.swift in Sources */,
