@@ -1,9 +1,5 @@
-//
-//  SUIApp.swift
-//  SUI
-//
-//  Created by angelina on 17.01.2023.
-//
+// SUIApp.swift
+// Copyright © RoadMap. All rights reserved.
 
 import SwiftUI
 
@@ -11,7 +7,7 @@ import SwiftUI
 struct SUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
