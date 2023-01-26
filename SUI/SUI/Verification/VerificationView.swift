@@ -73,6 +73,7 @@ struct VerificationView: View {
     // MARK: - Private Properties
 
     @Environment(\.presentationMode) private var presentation
+
     @StateObject private var verificationViewModel = VerificationViewModel()
 
     private var progressView: some View {

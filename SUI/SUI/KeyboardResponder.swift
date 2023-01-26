@@ -7,8 +7,9 @@ import SwiftUI
 final class KeyboardResponder: ObservableObject {
     // MARK: - Private property
 
-    private var notificationCenter: NotificationCenter
     @Published private(set) var currentHeight: CGFloat = 0
+
+    private var notificationCenter: NotificationCenter
 
     // MARK: - Initializer
 

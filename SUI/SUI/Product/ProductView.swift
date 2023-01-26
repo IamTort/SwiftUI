@@ -21,6 +21,7 @@ struct ProductView: View {
         static let progressViewText = "Chars ="
         static let progressViewScoreText = "/ 150"
         static let charCountNumber = 150
+        static let squareViewPaddingNumber: CGFloat = 60
     }
 
     // MARK: - Public Properties
@@ -50,6 +51,7 @@ struct ProductView: View {
     // MARK: - Private Properties
 
     @ObservedObject private var keyboard = KeyboardResponder()
+
     @StateObject private var chairViewModel = ProductViewModel()
 
     private var navigationBarView: some View {
@@ -92,7 +94,7 @@ struct ProductView: View {
                 .padding(5)
             }
         }
-        .frame(width: UIScreen.main.bounds.width - 60, height: 120)
+        .frame(width: UIScreen.main.bounds.width - Constants.squareViewPaddingNumber, height: 120)
         .shadow(color: Color(Constants.lightGrayColorName), radius: 7)
     }
 

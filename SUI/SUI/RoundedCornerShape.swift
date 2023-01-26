@@ -1,10 +1,10 @@
-// RoundedCorner.swift
+// RoundedCornerShape.swift
 // Copyright © RoadMap. All rights reserved.
 
 import SwiftUI
 
 /// Закруглитель углов у вью
-struct RoundedCorner: Shape {
+struct RoundedCornerShape: Shape {
     // MARK: - Public property
 
     var radius: CGFloat = .infinity

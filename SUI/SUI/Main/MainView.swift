@@ -60,7 +60,7 @@ struct MainView: View {
 
     private var startButtonView: some View {
         Button(Constants.startButtonTitle) {
-            mainViewModel.isShowChair = true
+            mainViewModel.isChairShown = true
         }
         .frame(width: 320, height: 80)
         .background(.white)
@@ -72,7 +72,7 @@ struct MainView: View {
     }
 
     private var navigationLinkView: some View {
-        NavigationLink(isActive: $mainViewModel.isShowChair) {
+        NavigationLink(isActive: $mainViewModel.isChairShown) {
             ProductView()
         } label: {
             EmptyView()
@@ -86,7 +86,7 @@ struct MainView: View {
     }
 
     private var loginNavigationLinkView: some View {
-        NavigationLink(isActive: $mainViewModel.isShowLogin) {
+        NavigationLink(isActive: $mainViewModel.isLoginShown) {
             LoginView()
         } label: {
             Text(Constants.navigationTitleString)

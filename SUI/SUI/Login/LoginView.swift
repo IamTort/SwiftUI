@@ -59,6 +59,7 @@ struct LoginView: View {
     // MARK: - Private Properties
 
     @StateObject private var loginViewModel = LoginViewModel()
+
     @FocusState private var loginIsFocused: Bool
     @FocusState private var passwordIsFocused: Bool
 

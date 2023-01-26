@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA565D40298104BA0007850A /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D3F298104BA0007850A /* RoundedCorner.swift */; };
+		FA565D40298104BA0007850A /* RoundedCornerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D3F298104BA0007850A /* RoundedCornerShape.swift */; };
 		FA565D42298105D90007850A /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D41298105D90007850A /* View+Extension.swift */; };
 		FA565D4429810CDC0007850A /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D4329810CDC0007850A /* MainViewModel.swift */; };
 		FA565D4629810CFF0007850A /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565D4529810CFF0007850A /* TextFieldModifier.swift */; };
@@ -28,7 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA565D3F298104BA0007850A /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		FA565D3F298104BA0007850A /* RoundedCornerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerShape.swift; sourceTree = "<group>"; };
 		FA565D41298105D90007850A /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		FA565D4329810CDC0007850A /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		FA565D4529810CFF0007850A /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 				FA565D4529810CFF0007850A /* TextFieldModifier.swift */,
 				FA565D4729810D3B0007850A /* TextSquireFieldModifier.swift */,
 				FA565D41298105D90007850A /* View+Extension.swift */,
-				FA565D3F298104BA0007850A /* RoundedCorner.swift */,
+				FA565D3F298104BA0007850A /* RoundedCornerShape.swift */,
 				FAAAADE0298075B300146C57 /* KeyboardResponder.swift */,
 				FAAAADDE2980593600146C57 /* PhoneNumberFormatter.swift */,
 				FA565D53298161BB0007850A /* String+Extension.swift */,
@@ -253,7 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA565D40298104BA0007850A /* RoundedCorner.swift in Sources */,
+				FA565D40298104BA0007850A /* RoundedCornerShape.swift in Sources */,
 				FA565D54298161BB0007850A /* String+Extension.swift in Sources */,
 				FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */,
 				FA565D4C29812B120007850A /* ProductViewModel.swift in Sources */,

@@ -22,8 +22,8 @@ final class MainViewModel: ObservableObject {
 
     // MARK: - Public Properties
 
-    @Published var isShowLogin = false
-    @Published var isShowChair = false
+    @Published var isLoginShown = false
+    @Published var isChairShown = false
     @Published var urls = Constants.imageUrlStrings
 
     func generateUrl() -> URL? {
