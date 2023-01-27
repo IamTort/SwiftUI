@@ -39,7 +39,9 @@ struct ProfileView: View {
                     sectionView
                 }
                 .listStyle(.inset)
+                Spacer()
             }
+            .navigationBarTitleDisplayMode(.inline)
             .listRowSeparator(.hidden)
         }
     }
@@ -49,7 +51,7 @@ struct ProfileView: View {
     private var navigationBarView: some View {
         Rectangle()
             .fill(.clear)
-            .frame(height: 4)
+            .frame(height: 0)
             .background(
                 LinearGradient(
                     colors: [.yellow, .red.opacity(0.9)],

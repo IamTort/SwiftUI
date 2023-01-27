@@ -29,19 +29,17 @@ struct NotificationView: View {
     // MARK: - Public Properties
 
     var body: some View {
-        NavigationView {
-            VStack {
-                navigationBarView
-                ZStack {
-                    backgroundView
-                    backgroundSquareView
-                    scrollRowsView
-                }
-                updateButtonView
-                Spacer(minLength: 130)
+        VStack {
+            navigationBarView
+            ZStack {
+                backgroundView
+                backgroundSquareView
+                scrollRowsView
             }
-            .background(.white)
+            updateButtonView
+            Spacer(minLength: 130)
         }
+        .background(.white)
         .navigationBarBackButtonHidden(true)
     }
 
@@ -128,7 +126,7 @@ struct NotificationView: View {
             )
             .foregroundColor(.white)
             .shadow(radius: 7)
-            .padding(.top, 10)
+            .padding(.top, -5)
     }
 
     private var scrollRowsView: some View {
@@ -161,8 +159,8 @@ struct NotificationView: View {
             }
         }
         .padding(30)
-        .padding(.top, 45)
-        .padding(.bottom, 30)
+        .padding(.top, 20)
+        .padding(.bottom, 15)
     }
 
     // MARK: - Private methods

@@ -38,6 +38,7 @@ struct ProductsView: View {
                 }
                 Spacer()
             }
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 

@@ -49,7 +49,7 @@ struct MainTabView: View {
                 }
                 .tag(Constants.threeNumber)
 
-            NotificationView()
+            Text(Constants.titleText)
                 .tabItem {
                     Image(systemName: Constants.ellipsImageName)
                 }
@@ -60,7 +60,7 @@ struct MainTabView: View {
 
     // MARK: - Private property
 
-    @State private var tabSelected = Constants.zeroNumber
+    @State var tabSelected = Constants.zeroNumber
 }
 
 struct MainTabView_Previews: PreviewProvider {

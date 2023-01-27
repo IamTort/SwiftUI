@@ -15,20 +15,22 @@ final class ProductsViewModel: ObservableObject {
 
     func makePlus(item: Int) {
         products[item].count += 1
+        getTotalPrice()
     }
 
     func makeMinusCount(item: Int) {
         guard products[item].count > 0 else { return }
         products[item].count -= 1
+        getTotalPrice()
     }
 
     // MARK: - Private methods
 
-    private func getTotalPrice() -> Int {
+    private func getTotalPrice() {
         var summ = 0
         for product in products {
             summ += product.count * product.price
         }
-        return summ
+        totalPrice = summ
     }
 }
