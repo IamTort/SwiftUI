@@ -8,18 +8,21 @@ final class FiltersViewModel: ObservableObject {
     // MARK: - Private Constants
 
     private enum Constants {
+        static let rowWidthViewNumber: CGFloat = 130
+        static let columnWidthViewNumber: CGFloat = 40
+        static let columnSpacingNumber: CGFloat = 30
         static let grayColorString = "lightGray"
     }
 
     // MARK: - Public Properties
 
-    @Published var row: [GridItem] = [.init(.fixed(130))]
+    @Published var row: [GridItem] = [.init(.fixed(Constants.rowWidthViewNumber))]
     @Published var column: [GridItem] = [
-        .init(.fixed(40), spacing: 30, alignment: .top),
-        .init(.fixed(40), spacing: 30, alignment: .top),
-        .init(.fixed(40), spacing: 30, alignment: .top),
-        .init(.fixed(40), spacing: 30, alignment: .top),
-        .init(.fixed(40), spacing: 30, alignment: .top)
+        .init(.fixed(Constants.columnWidthViewNumber), spacing: Constants.columnSpacingNumber, alignment: .top),
+        .init(.fixed(Constants.columnWidthViewNumber), spacing: Constants.columnSpacingNumber, alignment: .top),
+        .init(.fixed(Constants.columnWidthViewNumber), spacing: Constants.columnSpacingNumber, alignment: .top),
+        .init(.fixed(Constants.columnWidthViewNumber), spacing: Constants.columnSpacingNumber, alignment: .top),
+        .init(.fixed(Constants.columnWidthViewNumber), spacing: Constants.columnSpacingNumber, alignment: .top)
     ]
     @Published var color = Color.black
     @Published var colors = [

@@ -11,16 +11,15 @@ struct CustomSliderView: View {
         static let constNumber: CGFloat = 50
         static let dolarString = "$"
         static let dotPaddingNumber: CGFloat = 15
+        static let paddingNumber: CGFloat = 80
+        static let maxPriceValNumber: CGFloat = 5000
+        static let sliderDotHeightNumber: CGFloat = 20
+        static let sliderStepNumber: CGFloat = 500
+        static let minimumValueNumber: CGFloat = 4.8
+        static let maximumValueNumber: CGFloat = 23.85
     }
 
     // MARK: - Public Properties
-
-    @State var maxPriceVal: CGFloat = 6500
-    @State var sliderDotHeight: CGFloat = 20
-    @State var sliderStep: CGFloat = 500
-    @State var minimumValue: CGFloat = 4.8
-    @State var maximumValue: CGFloat = 23.85
-    @State var totalSliderWidth = UIScreen.main.bounds.width - 80
 
     var body: some View {
         ZStack(alignment: .leading) {
@@ -80,6 +79,15 @@ struct CustomSliderView: View {
         }
         .padding(.horizontal, 30)
     }
+
+    // MARK: - Private Properties
+
+    @State private var maxPriceVal = Constants.maxPriceValNumber
+    @State private var sliderDotHeight = Constants.sliderDotHeightNumber
+    @State private var sliderStep = Constants.sliderStepNumber
+    @State private var minimumValue = Constants.minimumValueNumber
+    @State private var maximumValue = Constants.maximumValueNumber
+    @State private var totalSliderWidth = UIScreen.main.bounds.width - Constants.paddingNumber
 
     // MARK: - Private methods
 

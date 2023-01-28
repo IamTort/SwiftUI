@@ -5,11 +5,21 @@ import SwiftUI
 
 /// Кастомный слайдер
 struct CustomSliderTwoView: View {
+    // MARK: - Private Constants
+
+    private enum Constants {
+        static let paddingNumber: CGFloat = 80
+        static let circleWidthNumber: CGFloat = 30
+        static let stepNumber = 500
+        static let dolarString = "$"
+        static let minValueLocationXNumber: CGFloat = 8
+    }
+
     // MARK: - Public properties
 
     @State var minValue: CGFloat
     @State var maxValue: CGFloat
-    var totalWidth: CGFloat = UIScreen.main.bounds.width - 80
+    var totalWidth: CGFloat = UIScreen.main.bounds.width - Constants.paddingNumber
 
     var body: some View {
         ZStack(alignment: .leading) {
@@ -18,20 +28,20 @@ struct CustomSliderTwoView: View {
                 .frame(height: 10)
             Rectangle()
                 .fill(.purple)
-                .frame(width: (maxValue - minValue) + 30, height: 10)
-                .offset(x: minValue + 30)
+                .frame(width: (maxValue - minValue) + Constants.circleWidthNumber, height: 10)
+                .offset(x: minValue + Constants.circleWidthNumber)
             HStack {
-                makeMinValueCircleView()
-                makeMaxValueCircleView()
+                makeMinValueCircleView
+                makeMaxValueCircleView
             }
         }
         .offset(y: -80)
         .padding()
     }
 
-    // MARK: - Private methods
+    // MARK: - Private properties
 
-    private func makeMaxValueCircleView() -> some View {
+    private var makeMaxValueCircleView: some View {
         VStack {
             Circle()
                 .fill(.orange)
@@ -44,14 +54,17 @@ struct CustomSliderTwoView: View {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            if value.location.x <= totalWidth, value.location.x >= minValue, value.location.x > 8 {
+                            if
+                                value.location.x <= totalWidth, value.location.x >= minValue,
+                                value.location.x > Constants.minValueLocationXNumber
+                            {
                                 maxValue = value.location.x
                             }
                         }
                 )
             Spacer()
                 .frame(height: 5)
-            let text = "\(Int(maxValue / calculatePerStep()) * 500)$"
+            let text = "\(Int(maxValue / calculatePerStep()) * Constants.stepNumber)\(Constants.dolarString)"
             Text(text)
                 .font(.system(size: 10))
                 .fontWeight(.bold)
@@ -62,7 +75,7 @@ struct CustomSliderTwoView: View {
         .offset(y: 15)
     }
 
-    private func makeMinValueCircleView() -> some View {
+    private var makeMinValueCircleView: some View {
         VStack {
             Circle()
                 .fill(.orange)
@@ -82,7 +95,7 @@ struct CustomSliderTwoView: View {
                 )
             Spacer()
                 .frame(height: 5)
-            let text = "\(Int(minValue / calculatePerStep()) * 500)$"
+            let text = "\(Int(minValue / calculatePerStep()) * Constants.stepNumber)\(Constants.dolarString)"
             Text(text)
                 .font(.system(size: 10))
                 .fontWeight(.bold)
@@ -93,7 +106,9 @@ struct CustomSliderTwoView: View {
         .offset(y: 15)
     }
 
+    // MARK: - Private methods
+
     private func calculatePerStep() -> CGFloat {
-        (totalWidth / 5500) * 500
+        (totalWidth / maxValue) * CGFloat(Constants.stepNumber)
     }
 }

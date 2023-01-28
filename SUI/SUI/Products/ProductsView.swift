@@ -24,6 +24,7 @@ struct ProductsView: View {
         static let alertTitle = "Settings apply"
         static let fortyNumber: CGFloat = 40
         static let seventyNumber: CGFloat = 70
+        static let searchBarPaddingNumber: CGFloat = 100
     }
 
     // MARK: - Public Properties
@@ -70,7 +71,7 @@ struct ProductsView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 25)
                 .fill(.white)
-                .frame(width: UIScreen.main.bounds.width - 100, height: 50)
+                .frame(width: UIScreen.main.bounds.width - Constants.searchBarPaddingNumber, height: 50)
             HStack {
                 Image(systemName: Constants.glassImageName)
                     .resizable()
@@ -119,29 +120,7 @@ struct ProductsView: View {
 
     private var rowsView: some View {
         ForEach(0 ..< productsViewModel.products.count, id: \.self) { item in
-            ZStack {
-                backProductView
-                HStack {
-                    Spacer(minLength: 40)
-                    productImageView(product: productsViewModel.products[item])
-                    Spacer(minLength: 10)
-                    VStack {
-                        titleTextView(product: productsViewModel.products[item])
-                        HStack {
-                            minusButtonView(item: item)
-                            productCountTextView(product: productsViewModel.products[item])
-                            plusButtonView(item: item)
-                        }
-                    }
-                    Spacer(minLength: 20)
-                    VStack {
-                        oldPriceTextView
-                        newPriceTextView(product: productsViewModel.products[item])
-                    }
-                    .padding(.trailing, 20)
-                    Spacer()
-                }
-            }
+            rowView(item: item)
         }
         .padding(.top, 10)
     }
@@ -166,6 +145,32 @@ struct ProductsView: View {
     }
 
     // MARK: - Private methods
+
+    private func rowView(item: Int) -> some View {
+        ZStack {
+            backProductView
+            HStack {
+                Spacer(minLength: 40)
+                productImageView(product: productsViewModel.products[item])
+                Spacer(minLength: 10)
+                VStack {
+                    titleTextView(product: productsViewModel.products[item])
+                    HStack {
+                        minusButtonView(item: item)
+                        productCountTextView(product: productsViewModel.products[item])
+                        plusButtonView(item: item)
+                    }
+                }
+                Spacer(minLength: 20)
+                VStack {
+                    oldPriceTextView
+                    newPriceTextView(product: productsViewModel.products[item])
+                }
+                .padding(.trailing, 20)
+                Spacer()
+            }
+        }
+    }
 
     private func minusButtonView(item: Int) -> some View {
         Button {

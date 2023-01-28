@@ -18,6 +18,7 @@ struct FiltersView: View {
         static let filterImageName = "filter"
         static let colorsTitle = "Colors"
         static let grayColorString = "lightGray"
+        static let textSizeNumber: CGFloat = 30
     }
 
     // MARK: - Public property
@@ -45,11 +46,12 @@ struct FiltersView: View {
     @Environment(\.presentationMode) private var presentation
 
     @StateObject private var filtersViewModel = FiltersViewModel()
+    @StateObject private var productsViewModel = ProductsViewModel()
 
     private var pricingTextView: some View {
         HStack {
             Text(Constants.pricingTitle)
-                .font(.system(size: 30, weight: .bold, design: .default))
+                .font(.system(size: Constants.textSizeNumber, weight: .bold, design: .default))
                 .padding(.leading, 30)
             Spacer()
         }
@@ -65,11 +67,11 @@ struct FiltersView: View {
     private var categoryTextView: some View {
         HStack {
             Text(Constants.categoryTitle)
-                .font(.system(size: 30, weight: .bold, design: .default))
+                .font(.system(size: Constants.textSizeNumber, weight: .bold, design: .default))
 
             Spacer()
             Text(Constants.moreTitle)
-                .font(.system(size: 30, weight: .bold, design: .default))
+                .font(.system(size: Constants.textSizeNumber, weight: .bold, design: .default))
                 .foregroundColor(.lightGray)
             Image(systemName: Constants.rightImageName)
                 .resizable()
@@ -108,7 +110,7 @@ struct FiltersView: View {
 
     private var titleTextView: some View {
         Text(Constants.navigationTitle)
-            .font(.system(size: 30, weight: .bold, design: .default))
+            .font(.system(size: Constants.textSizeNumber, weight: .bold, design: .default))
             .foregroundColor(.white)
     }
 
@@ -120,23 +122,31 @@ struct FiltersView: View {
                 spacing: 30,
                 pinnedViews: .sectionHeaders
             ) {
-                ForEach(0 ..< 5) { _ in
-                    ZStack {
-                        Rectangle()
-                            .fill(.white)
-                            .frame(width: 140, height: 100)
-                            .shadow(color: .gray, radius: 5)
-                        productImageView
-                    }
-                }
+                productsView
             }
             .padding(.leading, 35)
         }
     }
 
+    private var productsView: some View {
+        ForEach(productsViewModel.products) { _ in
+            ZStack {
+                backProductView
+                productImageView
+            }
+        }
+    }
+
+    private var backProductView: some View {
+        Rectangle()
+            .fill(.white)
+            .frame(width: 140, height: 100)
+            .shadow(color: .gray, radius: 5)
+    }
+
     private var navigationBarButtonView: some View {
         Button(action: {
-            self.presentation.wrappedValue.dismiss()
+            presentation.wrappedValue.dismiss()
         }, label: {
             Image(systemName: Constants.backImageName)
                 .resizable()
@@ -159,7 +169,7 @@ struct FiltersView: View {
     private var colorsTextView: some View {
         HStack {
             Text(Constants.colorsTitle)
-                .font(.system(size: 30, weight: .bold, design: .default))
+                .font(.system(size: Constants.textSizeNumber, weight: .bold, design: .default))
                 .padding(.leading, 30)
                 .foregroundColor(filtersViewModel.color)
             Spacer()
@@ -174,18 +184,24 @@ struct FiltersView: View {
             pinnedViews: .sectionHeaders
         ) {
             ForEach(0 ..< filtersViewModel.colors.count, id: \.self) { item in
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(filtersViewModel.colors[item])
-                    .frame(width: 50, height: 50)
-                    .overlay(
-                        Circle()
-                            .stroke(Color(Constants.grayColorString), lineWidth: 3)
-                    )
-                    .onTapGesture {
-                        filtersViewModel.color = filtersViewModel.colors[item]
-                    }
+                colorView(item: item)
             }
         }
+    }
+
+    // MARK: - Private methods
+
+    private func colorView(item: Int) -> some View {
+        RoundedRectangle(cornerRadius: 25)
+            .fill(filtersViewModel.colors[item])
+            .frame(width: 50, height: 50)
+            .overlay(
+                Circle()
+                    .stroke(Color(Constants.grayColorString), lineWidth: 3)
+            )
+            .onTapGesture {
+                filtersViewModel.color = filtersViewModel.colors[item]
+            }
     }
 }
 

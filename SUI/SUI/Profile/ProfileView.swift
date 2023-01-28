@@ -98,23 +98,12 @@ struct ProfileView: View {
             )
         } header: {
             VStack {
-                Image(Constants.avatarImageName)
-                    .resizable()
-                    .frame(height: 150)
-                    .cornerRadius(10)
-                    .clipShape(Circle())
-                Text(Constants.usernameText)
-                    .font(.system(size: 20, weight: .bold, design: .default))
-                    .foregroundColor(.black)
+                userImageView
+                userNameTextView
                 HStack {
                     Spacer()
-                    Image(Constants.placeholderImageName)
-                        .resizable()
-                        .frame(width: 20, height: 20)
-
-                    Text(Constants.cityText)
-                        .font(.system(size: 20, weight: .regular, design: .default))
-                        .foregroundColor(.black)
+                    userLocationImageView
+                    userLocationTextView
                     Spacer()
                 }
                 .offset(y: -10)
@@ -125,28 +114,58 @@ struct ProfileView: View {
         .listRowSeparator(.hidden)
     }
 
+    private var userImageView: some View {
+        Image(Constants.avatarImageName)
+            .resizable()
+            .frame(height: 150)
+            .cornerRadius(10)
+            .clipShape(Circle())
+    }
+
+    private var userNameTextView: some View {
+        Text(Constants.usernameText)
+            .font(.system(size: 20, weight: .bold, design: .default))
+            .foregroundColor(.black)
+    }
+    
+    private var userLocationImageView: some View {
+        Image(Constants.placeholderImageName)
+            .resizable()
+            .frame(width: 20, height: 20)
+    }
+    
+    private var userLocationTextView: some View {
+        Text(Constants.cityText)
+            .font(.system(size: 20, weight: .regular, design: .default))
+            .foregroundColor(.black)
+    }
+    
+    private var badgeBackView: some View {
+        Circle()
+            .fill(Color.clear)
+            .modifier(GradientModifier())
+            .clipShape(Circle())
+            .frame(width: 45)
+    }
+    
+    private var lineView: some View {
+        Rectangle()
+            .frame(height: 1)
+            .foregroundColor(.lightGray)
+    }
+    
     // MARK: - Private methods
 
     private func makeRowView(imageName: String, title: String, notificationCount: Int?) -> some View {
         HStack {
-            Image(systemName: imageName)
-                .resizable()
-                .frame(width: 30, height: 25, alignment: .center)
-                .offset(x: -10, y: 7)
-                .foregroundColor(.lightGray)
+            makeRowImageView(imageName: imageName)
             VStack {
                 HStack {
-                    Text(title)
-                        .offset(y: 8)
-                        .font(.system(size: 23, weight: .regular, design: .default))
+                    makeRowTextView(title: title)
                     Spacer()
                     if let notificationCount = notificationCount {
                         ZStack {
-                            Circle()
-                                .fill(Color.clear)
-                                .modifier(GradientModifier())
-                                .clipShape(Circle())
-                                .frame(width: 45)
+                            badgeBackView
                             Text(String(notificationCount))
                                 .bold()
                                 .foregroundColor(.white)
@@ -154,11 +173,23 @@ struct ProfileView: View {
                         .offset(y: 8)
                     }
                 }
-                Rectangle()
-                    .frame(height: 1)
-                    .foregroundColor(.lightGray)
+                lineView
             }
         }
+    }
+    
+    private func makeRowImageView(imageName: String) -> some View {
+        Image(systemName: imageName)
+            .resizable()
+            .frame(width: 30, height: 25, alignment: .center)
+            .offset(x: -10, y: 7)
+            .foregroundColor(.lightGray)
+    }
+    
+    private func makeRowTextView(title: String) -> some View {
+        Text(title)
+            .offset(y: 8)
+            .font(.system(size: 23, weight: .regular, design: .default))
     }
 }
 
