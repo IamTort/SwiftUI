@@ -28,7 +28,6 @@
 		FABA4507298296F100BA8D9A /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA4506298296F100BA8D9A /* ProductsView.swift */; };
 		FABA45092982A57600BA8D9A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA45082982A57600BA8D9A /* Product.swift */; };
 		FABA450C2982AC8800BA8D9A /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA450B2982AC8800BA8D9A /* FiltersView.swift */; };
-		FABA450E2983FC2400BA8D9A /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA450D2983FC2400BA8D9A /* Profile.swift */; };
 		FABA45132984004300BA8D9A /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA45122984004300BA8D9A /* Color+Extension.swift */; };
 		FABA45152984021100BA8D9A /* NotificationChecklistToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA45142984021100BA8D9A /* NotificationChecklistToggleStyle.swift */; };
 		FABA4517298407B100BA8D9A /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA4516298407B100BA8D9A /* NotificationViewModel.swift */; };
@@ -64,7 +63,6 @@
 		FABA4506298296F100BA8D9A /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		FABA45082982A57600BA8D9A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		FABA450B2982AC8800BA8D9A /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
-		FABA450D2983FC2400BA8D9A /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		FABA45122984004300BA8D9A /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		FABA45142984021100BA8D9A /* NotificationChecklistToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationChecklistToggleStyle.swift; sourceTree = "<group>"; };
 		FABA4516298407B100BA8D9A /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				FABA45082982A57600BA8D9A /* Product.swift */,
-				FABA450D2983FC2400BA8D9A /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,7 +338,6 @@
 				FA565D40298104BA0007850A /* RoundedCornerShape.swift in Sources */,
 				FABA45132984004300BA8D9A /* Color+Extension.swift in Sources */,
 				FABA451929840F0E00BA8D9A /* ProductsViewModel.swift in Sources */,
-				FABA450E2983FC2400BA8D9A /* Profile.swift in Sources */,
 				FA565D54298161BB0007850A /* String+Extension.swift in Sources */,
 				FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */,
 				FABA4517298407B100BA8D9A /* NotificationViewModel.swift in Sources */,

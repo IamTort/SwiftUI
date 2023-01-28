@@ -5,10 +5,15 @@ import Foundation
 
 /// Модель продукта
 struct Product: Identifiable {
+    /// Идентификатор
     let id = UUID()
+    /// Название фото
     let imageName: String
+    /// Название продукта
     let title: String
+    /// Цена
     let price: Int
+    /// Количество выбранного продуктов
     var count = 0
 
     static func getProducts() -> [Product] {
