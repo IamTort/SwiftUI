@@ -1,7 +1,7 @@
 // LoginViewModel.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
+import SwiftUI
 
 /// Вью модель экрана логина
 final class LoginViewModel: ObservableObject {
@@ -12,6 +12,13 @@ final class LoginViewModel: ObservableObject {
         static let emptyString = ""
         static let minimumPasswordCountString = 5
         static let maximumPasswordCountString = 16
+        static let startValueNumber: Float = 0
+        static let maxValueNumber: Float = 10
+        static let progressViewCountNumber = 0.0
+        static let progressMaxCountNumber = 5.0
+        static let attemptsNumber = 0
+        static let oneNumber = 1
+        static let timeNumber: TimeInterval = 1
     }
 
     // MARK: - Public Properties
@@ -22,6 +29,11 @@ final class LoginViewModel: ObservableObject {
     @Published var isPasswordAlertShown = false
     @Published var isShowVerificationScreen = false
     @Published var isShowChairScreen = false
+    @Published var attempts = Constants.attemptsNumber
+    @Published var value: Float = Constants.startValueNumber
+    @Published var progressViewCount = Constants.progressViewCountNumber
+    @Published var progressMaxCount = Constants.progressMaxCountNumber
+    @Published var isShowIconError = false
 
     // MARK: - Public methods
 
@@ -29,10 +41,16 @@ final class LoginViewModel: ObservableObject {
         guard passwordText.count > Constants.minimumPasswordCountString,
               passwordText.count < Constants.maximumPasswordCountString
         else {
-            isPasswordAlertShown = true
+            attempts += Constants.oneNumber
+            withAnimation {
+                self.isShowIconError = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.isShowIconError = false
+                }
+            }
             return
         }
-        isShowChairScreen = true
+        progressViewActivate()
     }
 
     func checkNewValue(newValue: String) -> Bool {
@@ -41,5 +59,16 @@ final class LoginViewModel: ObservableObject {
             return true
         }
         return false
+    }
+
+    func progressViewActivate() {
+        Timer.scheduledTimer(withTimeInterval: Constants.timeNumber, repeats: true) { timer in
+            if self.progressViewCount == self.progressMaxCount {
+                timer.invalidate()
+                self.isShowChairScreen = true
+            } else {
+                self.progressViewCount += Double(Constants.oneNumber)
+            }
+        }
     }
 }

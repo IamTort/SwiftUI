@@ -1,7 +1,7 @@
 // ProductViewModel.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
+import SwiftUI
 
 /// Вью модель экрана описания товара
 final class ProductViewModel: ObservableObject {
@@ -11,6 +11,7 @@ final class ProductViewModel: ObservableObject {
         static let textString = "kelmv lkanv'ankewl;onv;ejvn ejkwlvejb ewkhilvu;q"
         static let zeroNumber = 0
         static let emptyString = ""
+        static let zeroCGFloatNumber: CGFloat = 1
     }
 
     // MARK: - Public Properties
@@ -18,4 +19,6 @@ final class ProductViewModel: ObservableObject {
     @Published var text = Constants.textString
     @Published var totalChars = Constants.zeroNumber
     @Published var lastText = Constants.emptyString
+    @Published var tapped = false
+    @Published var scale: CGFloat = Constants.zeroCGFloatNumber
 }

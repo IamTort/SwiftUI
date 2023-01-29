@@ -25,7 +25,7 @@ struct MainTabView: View {
 
     var body: some View {
         TabView(selection: $tabSelected) {
-            Text(Constants.titleText)
+            ProductView()
                 .tabItem {
                     Image(systemName: Constants.houseImageName)
                 }
@@ -60,7 +60,7 @@ struct MainTabView: View {
 
     // MARK: - Private property
 
-    @State var tabSelected = Constants.zeroNumber
+    @State private var tabSelected = Constants.twoNumber
 }
 
 struct MainTabView_Previews: PreviewProvider {

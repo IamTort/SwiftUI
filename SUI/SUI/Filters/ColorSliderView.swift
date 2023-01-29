@@ -31,34 +31,38 @@ struct ColorSliderView: View {
                     makeTextView(text: colorSliderViewModel.makeMinimumValueText())
                 }
                 .offset(x: colorSliderViewModel.minimumValue - Constants.dotPaddingNumber, y: 18)
-                .gesture(DragGesture()
-                    .onChanged { value in
-                        colorSliderViewModel.makeChangeMinimumValue(value: value)
-                    })
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            colorSliderViewModel.makeChangeMinimumValue(value: value)
+                        }
+                )
                 VStack {
                     dotView
                     makeTextView(text: colorSliderViewModel.makeMaximumValueText())
                 }
                 .offset(x: colorSliderViewModel.maximumValue, y: 18)
-                .gesture(DragGesture()
-                    .onChanged { value in
-                        colorSliderViewModel.makeChangeMaximumValue(value: value)
-                    })
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            colorSliderViewModel.makeChangeMaximumValue(value: value)
+                        }
+                )
             }
         }
         .padding(.horizontal, 30)
     }
 
     // MARK: - Private Properties
-    
+
     @StateObject private var colorSliderViewModel = ColorSliderViewModel()
-    
+
     private var backSliderView: some View {
         Rectangle()
             .fill(Color.gray.opacity(0.4))
             .frame(width: colorSliderViewModel.totalSliderWidth, height: 12, alignment: .center)
     }
-    
+
     private var sliderColorView: some View {
         Rectangle()
             .fill(Color.purple)
@@ -68,15 +72,15 @@ struct ColorSliderView: View {
             )
             .offset(x: colorSliderViewModel.minimumValue)
     }
-    
+
     private var dotView: some View {
         Circle()
             .fill(.orange)
             .frame(width: colorSliderViewModel.sliderDotHeight, height: colorSliderViewModel.sliderDotHeight)
     }
-    
+
     // MARK: - Private methods
-    
+
     private func makeTextView(text: String) -> some View {
         Text(text)
             .font(.system(size: 12))

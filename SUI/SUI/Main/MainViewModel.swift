@@ -1,7 +1,7 @@
 // MainViewModel.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
+import SwiftUI
 
 /// Вью модель главного экрана
 final class MainViewModel: ObservableObject {
@@ -24,9 +24,19 @@ final class MainViewModel: ObservableObject {
 
     @Published var isLoginShown = false
     @Published var isChairShown = false
+    @Published var isLongTap = false
+    @Published var isLoadingScreen = false
     @Published var urls = Constants.imageUrlStrings
 
     func generateUrl() -> URL? {
-        URL(string: urls[Int.random(in: Constants.zeroNumber ... urls.count)])
+        URL(string: urls[Int.random(in: Constants.zeroNumber ..< urls.count)])
+    }
+
+    func longTapViewHide() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            withAnimation {
+                self.isLongTap.toggle()
+            }
+        }
     }
 }

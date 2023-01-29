@@ -7,7 +7,7 @@ import SwiftUI
 struct SUIApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            MainView()
         }
     }
 }

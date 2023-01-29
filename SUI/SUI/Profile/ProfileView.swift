@@ -32,17 +32,15 @@ struct ProfileView: View {
     // MARK: - Public property
 
     var body: some View {
-        NavigationView {
-            VStack {
-                navigationBarView
-                List {
-                    sectionView
-                }
-                .listStyle(.inset)
-                Spacer()
+        VStack {
+            navigationBarView
+            List {
+                sectionView
             }
+            .listStyle(.inset)
             .navigationBarTitleDisplayMode(.inline)
             .listRowSeparator(.hidden)
+            Spacer()
         }
     }
 
@@ -91,11 +89,19 @@ struct ProfileView: View {
                 title: Constants.purchasesText,
                 notificationCount: nil
             )
-            makeRowView(
-                imageName: Constants.gearshapeImageName,
-                title: Constants.settingsText,
-                notificationCount: nil
-            )
+            ZStack {
+                makeRowView(
+                    imageName: Constants.gearshapeImageName,
+                    title: Constants.settingsText,
+                    notificationCount: nil
+                )
+                NavigationLink {
+                    CardView()
+                } label: {
+                    EmptyView()
+                }
+                .opacity(0)
+            }
         } header: {
             VStack {
                 userImageView
@@ -190,11 +196,5 @@ struct ProfileView: View {
         Text(title)
             .offset(y: 8)
             .font(.system(size: 23, weight: .regular, design: .default))
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
     }
 }
