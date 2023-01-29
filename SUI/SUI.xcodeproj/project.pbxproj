@@ -21,6 +21,21 @@
 		FAAAADDD29803E9000146C57 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAADDC29803E9000146C57 /* LoginView.swift */; };
 		FAAAADDF2980593600146C57 /* PhoneNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAADDE2980593600146C57 /* PhoneNumberFormatter.swift */; };
 		FAAAADE1298075B300146C57 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAADE0298075B300146C57 /* KeyboardResponder.swift */; };
+		FABA44FD2982647F00BA8D9A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA44FC2982647F00BA8D9A /* ProfileView.swift */; };
+		FABA44FF298264E900BA8D9A /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA44FE298264E900BA8D9A /* MainTabView.swift */; };
+		FABA45012982789800BA8D9A /* GradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA45002982789800BA8D9A /* GradientModifier.swift */; };
+		FABA45042982834600BA8D9A /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA45032982834600BA8D9A /* NotificationView.swift */; };
+		FABA4507298296F100BA8D9A /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA4506298296F100BA8D9A /* ProductsView.swift */; };
+		FABA45092982A57600BA8D9A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA45082982A57600BA8D9A /* Product.swift */; };
+		FABA450C2982AC8800BA8D9A /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA450B2982AC8800BA8D9A /* FiltersView.swift */; };
+		FABA45132984004300BA8D9A /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA45122984004300BA8D9A /* Color+Extension.swift */; };
+		FABA45152984021100BA8D9A /* NotificationChecklistToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA45142984021100BA8D9A /* NotificationChecklistToggleStyle.swift */; };
+		FABA4517298407B100BA8D9A /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA4516298407B100BA8D9A /* NotificationViewModel.swift */; };
+		FABA451929840F0E00BA8D9A /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA451829840F0E00BA8D9A /* ProductsViewModel.swift */; };
+		FABA451B2984354D00BA8D9A /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA451A2984354D00BA8D9A /* ColorSliderView.swift */; };
+		FABA451D29843E7700BA8D9A /* CustomSliderTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA451C29843E7700BA8D9A /* CustomSliderTwoView.swift */; };
+		FABA451F2984541200BA8D9A /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA451E2984541200BA8D9A /* FiltersViewModel.swift */; };
+		FABA453F29867AF700BA8D9A /* ColorSliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA453E29867AF700BA8D9A /* ColorSliderViewModel.swift */; };
 		FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF22975F2F600D22F4D /* SUIApp.swift */; };
 		FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF42975F2F600D22F4D /* MainView.swift */; };
 		FAC67BF72975F2F700D22F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF62975F2F700D22F4D /* Assets.xcassets */; };
@@ -42,6 +57,21 @@
 		FAAAADDC29803E9000146C57 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FAAAADDE2980593600146C57 /* PhoneNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberFormatter.swift; sourceTree = "<group>"; };
 		FAAAADE0298075B300146C57 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		FABA44FC2982647F00BA8D9A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FABA44FE298264E900BA8D9A /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		FABA45002982789800BA8D9A /* GradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientModifier.swift; sourceTree = "<group>"; };
+		FABA45032982834600BA8D9A /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		FABA4506298296F100BA8D9A /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
+		FABA45082982A57600BA8D9A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FABA450B2982AC8800BA8D9A /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
+		FABA45122984004300BA8D9A /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		FABA45142984021100BA8D9A /* NotificationChecklistToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationChecklistToggleStyle.swift; sourceTree = "<group>"; };
+		FABA4516298407B100BA8D9A /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		FABA451829840F0E00BA8D9A /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		FABA451A2984354D00BA8D9A /* ColorSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
+		FABA451C29843E7700BA8D9A /* CustomSliderTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSliderTwoView.swift; sourceTree = "<group>"; };
+		FABA451E2984541200BA8D9A /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
+		FABA453E29867AF700BA8D9A /* ColorSliderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderViewModel.swift; sourceTree = "<group>"; };
 		FAC67BEF2975F2F600D22F4D /* SUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC67BF22975F2F600D22F4D /* SUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIApp.swift; sourceTree = "<group>"; };
 		FAC67BF42975F2F600D22F4D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -96,6 +126,53 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		FABA44FB2982642D00BA8D9A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FABA44FC2982647F00BA8D9A /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FABA45022982832800BA8D9A /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				FABA45032982834600BA8D9A /* NotificationView.swift */,
+				FABA4516298407B100BA8D9A /* NotificationViewModel.swift */,
+				FABA45142984021100BA8D9A /* NotificationChecklistToggleStyle.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		FABA4505298296D900BA8D9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FABA4506298296F100BA8D9A /* ProductsView.swift */,
+				FABA451829840F0E00BA8D9A /* ProductsViewModel.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		FABA450A2982AC6D00BA8D9A /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				FABA450B2982AC8800BA8D9A /* FiltersView.swift */,
+				FABA451E2984541200BA8D9A /* FiltersViewModel.swift */,
+				FABA451A2984354D00BA8D9A /* ColorSliderView.swift */,
+				FABA453E29867AF700BA8D9A /* ColorSliderViewModel.swift */,
+				FABA451C29843E7700BA8D9A /* CustomSliderTwoView.swift */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		FABA450F2983FD9000BA8D9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FABA45082982A57600BA8D9A /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FAC67BE62975F2F600D22F4D = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +204,14 @@
 				FAAAADE0298075B300146C57 /* KeyboardResponder.swift */,
 				FAAAADDE2980593600146C57 /* PhoneNumberFormatter.swift */,
 				FA565D53298161BB0007850A /* String+Extension.swift */,
+				FABA45002982789800BA8D9A /* GradientModifier.swift */,
+				FABA44FE298264E900BA8D9A /* MainTabView.swift */,
+				FABA45122984004300BA8D9A /* Color+Extension.swift */,
+				FABA450F2983FD9000BA8D9A /* Model */,
+				FABA44FB2982642D00BA8D9A /* Profile */,
+				FABA450A2982AC6D00BA8D9A /* Filters */,
+				FABA45022982832800BA8D9A /* Notifications */,
+				FABA4505298296D900BA8D9A /* Products */,
 				FAC67BF62975F2F700D22F4D /* Assets.xcassets */,
 				FAC67BF82975F2F700D22F4D /* Preview Content */,
 			);
@@ -230,7 +315,7 @@
 		FAF786EF297EB1FA003F2CA9 /* Run SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -254,21 +339,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA565D40298104BA0007850A /* RoundedCornerShape.swift in Sources */,
+				FABA45132984004300BA8D9A /* Color+Extension.swift in Sources */,
+				FABA451929840F0E00BA8D9A /* ProductsViewModel.swift in Sources */,
 				FA565D54298161BB0007850A /* String+Extension.swift in Sources */,
 				FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */,
+				FABA4517298407B100BA8D9A /* NotificationViewModel.swift in Sources */,
 				FA565D4C29812B120007850A /* ProductViewModel.swift in Sources */,
 				FA565D4E2981303E0007850A /* VerificationViewModel.swift in Sources */,
+				FABA45092982A57600BA8D9A /* Product.swift in Sources */,
+				FABA451F2984541200BA8D9A /* FiltersViewModel.swift in Sources */,
 				FAAAADD929803E2600146C57 /* ProductView.swift in Sources */,
 				FAAAADE1298075B300146C57 /* KeyboardResponder.swift in Sources */,
+				FABA450C2982AC8800BA8D9A /* FiltersView.swift in Sources */,
+				FABA45152984021100BA8D9A /* NotificationChecklistToggleStyle.swift in Sources */,
 				FA565D42298105D90007850A /* View+Extension.swift in Sources */,
+				FABA451B2984354D00BA8D9A /* ColorSliderView.swift in Sources */,
 				FA565D4829810D3B0007850A /* TextSquireFieldModifier.swift in Sources */,
+				FABA451D29843E7700BA8D9A /* CustomSliderTwoView.swift in Sources */,
+				FABA44FD2982647F00BA8D9A /* ProfileView.swift in Sources */,
 				FA565D4429810CDC0007850A /* MainViewModel.swift in Sources */,
+				FABA44FF298264E900BA8D9A /* MainTabView.swift in Sources */,
 				FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */,
 				FA565D4A29811AF60007850A /* LoginViewModel.swift in Sources */,
+				FABA4507298296F100BA8D9A /* ProductsView.swift in Sources */,
 				FAAAADDD29803E9000146C57 /* LoginView.swift in Sources */,
 				FAAAADDF2980593600146C57 /* PhoneNumberFormatter.swift in Sources */,
 				FA565D4629810CFF0007850A /* TextFieldModifier.swift in Sources */,
+				FABA45012982789800BA8D9A /* GradientModifier.swift in Sources */,
+				FABA453F29867AF700BA8D9A /* ColorSliderViewModel.swift in Sources */,
 				FAAAADDB29803E5800146C57 /* VerificationView.swift in Sources */,
+				FABA45042982834600BA8D9A /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

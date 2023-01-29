@@ -173,7 +173,7 @@ struct ProductView: View {
     }
 }
 
-struct ChairView_Previews: PreviewProvider {
+struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
         ProductView()
     }
