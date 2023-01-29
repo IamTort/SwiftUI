@@ -30,7 +30,7 @@ struct FiltersView: View {
                 categoryTextView
                 scrollView
                 pricingTextView
-                CustomSliderView()
+                ColorSliderView()
                 colorsTextView
                 ScrollView {
                     colorsView
@@ -184,14 +184,14 @@ struct FiltersView: View {
             pinnedViews: .sectionHeaders
         ) {
             ForEach(0 ..< filtersViewModel.colors.count, id: \.self) { item in
-                colorView(item: item)
+                makeColorView(item: item)
             }
         }
     }
 
     // MARK: - Private methods
 
-    private func colorView(item: Int) -> some View {
+    private func makeColorView(item: Int) -> some View {
         RoundedRectangle(cornerRadius: 25)
             .fill(filtersViewModel.colors[item])
             .frame(width: 50, height: 50)

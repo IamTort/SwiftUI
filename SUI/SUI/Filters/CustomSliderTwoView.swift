@@ -19,6 +19,7 @@ struct CustomSliderTwoView: View {
 
     @State var minValue: CGFloat
     @State var maxValue: CGFloat
+
     var totalWidth: CGFloat = UIScreen.main.bounds.width - Constants.paddingNumber
 
     var body: some View {

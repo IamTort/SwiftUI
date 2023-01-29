@@ -32,9 +32,10 @@
 		FABA45152984021100BA8D9A /* NotificationChecklistToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA45142984021100BA8D9A /* NotificationChecklistToggleStyle.swift */; };
 		FABA4517298407B100BA8D9A /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA4516298407B100BA8D9A /* NotificationViewModel.swift */; };
 		FABA451929840F0E00BA8D9A /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA451829840F0E00BA8D9A /* ProductsViewModel.swift */; };
-		FABA451B2984354D00BA8D9A /* CustomSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA451A2984354D00BA8D9A /* CustomSliderView.swift */; };
+		FABA451B2984354D00BA8D9A /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA451A2984354D00BA8D9A /* ColorSliderView.swift */; };
 		FABA451D29843E7700BA8D9A /* CustomSliderTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA451C29843E7700BA8D9A /* CustomSliderTwoView.swift */; };
 		FABA451F2984541200BA8D9A /* FiltersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA451E2984541200BA8D9A /* FiltersViewModel.swift */; };
+		FABA453F29867AF700BA8D9A /* ColorSliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA453E29867AF700BA8D9A /* ColorSliderViewModel.swift */; };
 		FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF22975F2F600D22F4D /* SUIApp.swift */; };
 		FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF42975F2F600D22F4D /* MainView.swift */; };
 		FAC67BF72975F2F700D22F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF62975F2F700D22F4D /* Assets.xcassets */; };
@@ -67,9 +68,10 @@
 		FABA45142984021100BA8D9A /* NotificationChecklistToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationChecklistToggleStyle.swift; sourceTree = "<group>"; };
 		FABA4516298407B100BA8D9A /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		FABA451829840F0E00BA8D9A /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
-		FABA451A2984354D00BA8D9A /* CustomSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSliderView.swift; sourceTree = "<group>"; };
+		FABA451A2984354D00BA8D9A /* ColorSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
 		FABA451C29843E7700BA8D9A /* CustomSliderTwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSliderTwoView.swift; sourceTree = "<group>"; };
 		FABA451E2984541200BA8D9A /* FiltersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewModel.swift; sourceTree = "<group>"; };
+		FABA453E29867AF700BA8D9A /* ColorSliderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderViewModel.swift; sourceTree = "<group>"; };
 		FAC67BEF2975F2F600D22F4D /* SUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC67BF22975F2F600D22F4D /* SUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIApp.swift; sourceTree = "<group>"; };
 		FAC67BF42975F2F600D22F4D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -156,7 +158,8 @@
 			children = (
 				FABA450B2982AC8800BA8D9A /* FiltersView.swift */,
 				FABA451E2984541200BA8D9A /* FiltersViewModel.swift */,
-				FABA451A2984354D00BA8D9A /* CustomSliderView.swift */,
+				FABA451A2984354D00BA8D9A /* ColorSliderView.swift */,
+				FABA453E29867AF700BA8D9A /* ColorSliderViewModel.swift */,
 				FABA451C29843E7700BA8D9A /* CustomSliderTwoView.swift */,
 			);
 			path = Filters;
@@ -350,7 +353,7 @@
 				FABA450C2982AC8800BA8D9A /* FiltersView.swift in Sources */,
 				FABA45152984021100BA8D9A /* NotificationChecklistToggleStyle.swift in Sources */,
 				FA565D42298105D90007850A /* View+Extension.swift in Sources */,
-				FABA451B2984354D00BA8D9A /* CustomSliderView.swift in Sources */,
+				FABA451B2984354D00BA8D9A /* ColorSliderView.swift in Sources */,
 				FA565D4829810D3B0007850A /* TextSquireFieldModifier.swift in Sources */,
 				FABA451D29843E7700BA8D9A /* CustomSliderTwoView.swift in Sources */,
 				FABA44FD2982647F00BA8D9A /* ProfileView.swift in Sources */,
@@ -363,6 +366,7 @@
 				FAAAADDF2980593600146C57 /* PhoneNumberFormatter.swift in Sources */,
 				FA565D4629810CFF0007850A /* TextFieldModifier.swift in Sources */,
 				FABA45012982789800BA8D9A /* GradientModifier.swift in Sources */,
+				FABA453F29867AF700BA8D9A /* ColorSliderViewModel.swift in Sources */,
 				FAAAADDB29803E5800146C57 /* VerificationView.swift in Sources */,
 				FABA45042982834600BA8D9A /* NotificationView.swift in Sources */,
 			);

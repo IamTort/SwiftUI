@@ -120,7 +120,7 @@ struct ProductsView: View {
 
     private var rowsView: some View {
         ForEach(0 ..< productsViewModel.products.count, id: \.self) { item in
-            rowView(item: item)
+            makeRowView(item: item)
         }
         .padding(.top, 10)
     }
@@ -146,25 +146,25 @@ struct ProductsView: View {
 
     // MARK: - Private methods
 
-    private func rowView(item: Int) -> some View {
+    private func makeRowView(item: Int) -> some View {
         ZStack {
             backProductView
             HStack {
                 Spacer(minLength: 40)
-                productImageView(product: productsViewModel.products[item])
+                makeProductImageView(product: productsViewModel.products[item])
                 Spacer(minLength: 10)
                 VStack {
-                    titleTextView(product: productsViewModel.products[item])
+                    makeTitleTextView(product: productsViewModel.products[item])
                     HStack {
-                        minusButtonView(item: item)
-                        productCountTextView(product: productsViewModel.products[item])
-                        plusButtonView(item: item)
+                        makeMinusButtonView(item: item)
+                        makeProductCountTextView(product: productsViewModel.products[item])
+                        makePlusButtonView(item: item)
                     }
                 }
                 Spacer(minLength: 20)
                 VStack {
                     oldPriceTextView
-                    newPriceTextView(product: productsViewModel.products[item])
+                    makeNewPriceTextView(product: productsViewModel.products[item])
                 }
                 .padding(.trailing, 20)
                 Spacer()
@@ -172,7 +172,7 @@ struct ProductsView: View {
         }
     }
 
-    private func minusButtonView(item: Int) -> some View {
+    private func makeMinusButtonView(item: Int) -> some View {
         Button {
             productsViewModel.makeMinusCount(item: item)
         } label: {
@@ -180,7 +180,7 @@ struct ProductsView: View {
         }
     }
 
-    private func plusButtonView(item: Int) -> some View {
+    private func makePlusButtonView(item: Int) -> some View {
         Button {
             productsViewModel.makePlus(item: item)
         } label: {
@@ -188,26 +188,26 @@ struct ProductsView: View {
         }
     }
 
-    private func productImageView(product: Product) -> some View {
+    private func makeProductImageView(product: Product) -> some View {
         Image(product.imageName)
             .resizable()
             .foregroundColor(.orange)
             .frame(width: 80, height: 70, alignment: .leading)
     }
 
-    private func titleTextView(product: Product) -> some View {
+    private func makeTitleTextView(product: Product) -> some View {
         Text(product.title)
             .font(.system(size: 22, weight: .bold, design: .default))
     }
 
-    private func newPriceTextView(product: Product) -> some View {
+    private func makeNewPriceTextView(product: Product) -> some View {
         Text("\(Constants.dollarString)\(product.price)")
             .foregroundColor(.darkPurple)
             .font(.system(size: 40, weight: .medium, design: .default))
             .frame(width: 100)
     }
 
-    private func productCountTextView(product: Product) -> some View {
+    private func makeProductCountTextView(product: Product) -> some View {
         Text("\(product.count)")
             .font(.system(size: 22, weight: .medium, design: .default))
             .frame(width: 35, height: 35)

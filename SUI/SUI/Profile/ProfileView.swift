@@ -127,19 +127,19 @@ struct ProfileView: View {
             .font(.system(size: 20, weight: .bold, design: .default))
             .foregroundColor(.black)
     }
-    
+
     private var userLocationImageView: some View {
         Image(Constants.placeholderImageName)
             .resizable()
             .frame(width: 20, height: 20)
     }
-    
+
     private var userLocationTextView: some View {
         Text(Constants.cityText)
             .font(.system(size: 20, weight: .regular, design: .default))
             .foregroundColor(.black)
     }
-    
+
     private var badgeBackView: some View {
         Circle()
             .fill(Color.clear)
@@ -147,13 +147,13 @@ struct ProfileView: View {
             .clipShape(Circle())
             .frame(width: 45)
     }
-    
+
     private var lineView: some View {
         Rectangle()
             .frame(height: 1)
             .foregroundColor(.lightGray)
     }
-    
+
     // MARK: - Private methods
 
     private func makeRowView(imageName: String, title: String, notificationCount: Int?) -> some View {
@@ -177,7 +177,7 @@ struct ProfileView: View {
             }
         }
     }
-    
+
     private func makeRowImageView(imageName: String) -> some View {
         Image(systemName: imageName)
             .resizable()
@@ -185,7 +185,7 @@ struct ProfileView: View {
             .offset(x: -10, y: 7)
             .foregroundColor(.lightGray)
     }
-    
+
     private func makeRowTextView(title: String) -> some View {
         Text(title)
             .offset(y: 8)
