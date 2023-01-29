@@ -234,8 +234,12 @@ struct LoginView: View {
     }
 
     private var progressView: some View {
-        ProgressView(Constants.emptyString, value: loginViewModel.progressViewCount, total: loginViewModel.progressMaxCount)
-            .padding(.horizontal, 40)
+        ProgressView(
+            Constants.emptyString,
+            value: loginViewModel.progressViewCount,
+            total: loginViewModel.progressMaxCount
+        )
+        .padding(.horizontal, 40)
     }
 }
 
