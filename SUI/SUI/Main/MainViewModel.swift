@@ -28,6 +28,8 @@ final class MainViewModel: ObservableObject {
     @Published var isLoadingScreen = false
     @Published var urls = Constants.imageUrlStrings
 
+    // MARK: - Public methods
+    
     func generateUrl() -> URL? {
         URL(string: urls[Int.random(in: Constants.zeroNumber ..< urls.count)])
     }

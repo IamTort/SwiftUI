@@ -5,7 +5,6 @@ import SwiftUI
 
 /// Эффект дрожания
 struct ShakeGeometryEffect: GeometryEffect {
-    
     // MARK: - Private Constants
 
     private enum Constants {
@@ -15,15 +14,19 @@ struct ShakeGeometryEffect: GeometryEffect {
         static let defaultExpireYearName = "20"
         static let emptyString = ""
     }
-    
+
+    // MARK: - Public property
+
+    var animatableData: CGFloat
     var amount: CGFloat = Constants.amountNumber
     var shakesPerUnit = Constants.shakesPerUnitNumber
-    var animatableData: CGFloat
-    
+
+    // MARK: - Public methods
+
     func effectValue(size: CGSize) -> ProjectionTransform {
         ProjectionTransform(CGAffineTransform(
             translationX:
-                amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)),
+            amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)),
             y: 0
         ))
     }

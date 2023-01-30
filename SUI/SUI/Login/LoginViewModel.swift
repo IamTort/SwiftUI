@@ -28,12 +28,12 @@ final class LoginViewModel: ObservableObject {
     @Published var isAlertShown = false
     @Published var isPasswordAlertShown = false
     @Published var isShowVerificationScreen = false
-    @Published var isShowChairScreen = false
+    @Published var isChairScreenShown = false
     @Published var attempts = Constants.attemptsNumber
     @Published var value: Float = Constants.startValueNumber
     @Published var progressViewCount = Constants.progressViewCountNumber
     @Published var progressMaxCount = Constants.progressMaxCountNumber
-    @Published var isShowIconError = false
+    @Published var isIconErrorShown = false
 
     // MARK: - Public methods
 
@@ -43,9 +43,9 @@ final class LoginViewModel: ObservableObject {
         else {
             attempts += Constants.oneNumber
             withAnimation {
-                self.isShowIconError = true
+                self.isIconErrorShown = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.isShowIconError = false
+                    self.isIconErrorShown = false
                 }
             }
             return
@@ -65,7 +65,7 @@ final class LoginViewModel: ObservableObject {
         Timer.scheduledTimer(withTimeInterval: Constants.timeNumber, repeats: true) { timer in
             if self.progressViewCount == self.progressMaxCount {
                 timer.invalidate()
-                self.isShowChairScreen = true
+                self.isChairScreenShown = true
             } else {
                 self.progressViewCount += Double(Constants.oneNumber)
             }

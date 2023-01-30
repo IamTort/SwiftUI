@@ -29,6 +29,8 @@ struct CardView: View {
         static let sixtyNumber: CGFloat = 60
     }
 
+    // MARK: - Public Properties
+
     var body: some View {
         ZStack {
             VStack {
@@ -248,7 +250,7 @@ struct CardView: View {
 
     private var validTextView: some View {
         VStack(alignment: .leading) {
-            Text("\(cardViewModel.textMonth) \(Constants.slashString) \(cardViewModel.textYear)")
+            Text("\(cardViewModel.monthText) \(Constants.slashString) \(cardViewModel.yearText)")
                 .foregroundColor(.white)
                 .font(.title2)
                 .fontWeight(.bold)
@@ -394,7 +396,7 @@ struct CardView: View {
         .opacity(cardViewModel.isMonthPickerShown ? 1 : 0)
         .onChange(of: cardViewModel.expireMonth) { newValue in
             withAnimation {
-                cardViewModel.textMonth = newValue
+                cardViewModel.monthText = newValue
                 cardViewModel.expireMonthOnCardName = newValue
                 cardViewModel.isMonthPickerShown = false
                 scrollViewProxy.scrollTo(0, anchor: .center)
@@ -416,7 +418,7 @@ struct CardView: View {
         .opacity(cardViewModel.isYearPickerShown ? 1 : 0)
         .onChange(of: cardViewModel.expireYear) { newValue in
             withAnimation {
-                cardViewModel.textYear = newValue
+                cardViewModel.yearText = newValue
                 cardViewModel.expireYearOnCardName = newValue
                 cardViewModel.isYearPickerShown = false
                 scrollViewProxy.scrollTo(0, anchor: .center)
@@ -475,14 +477,14 @@ struct CardView: View {
             HStack(spacing: 140) {
                 VStack {
                     HStack {
-                        Text(cardViewModel.textMonth)
+                        Text(cardViewModel.monthText)
                         makeMonthPickerButtonView(scrollViewProxy: scrollViewProxy)
                     }
                     shortLineView
                 }
                 VStack {
                     HStack {
-                        Text(cardViewModel.textYear)
+                        Text(cardViewModel.yearText)
                         makeYearPickerButtonView(scrollViewProxy: scrollViewProxy)
                     }
                     shortLineView

@@ -1,7 +1,6 @@
 // CardViewModel.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
 import SwiftUI
 
 /// Вью модель экрана добавления карты
@@ -10,7 +9,7 @@ final class CardViewModel: ObservableObject {
 
     private enum Constants {
         static let defaultCardNumberName = "0000 0000 0000 0000"
-        static let ownerNameOnCard = "Your Name"
+        static let ownerNameOnCardText = "Your Name"
         static let defaultExpireMonthName = "05"
         static let defaultExpireYearName = "20"
         static let emptyString = ""
@@ -24,15 +23,16 @@ final class CardViewModel: ObservableObject {
         static let frontDegreeNumber = 0.0
     }
 
-    let months = Constants.months
-    let years = Constants.years
+    // MARK: - Public Properties
 
+    @Published var months = Constants.months
+    @Published var years = Constants.years
     @Published var isMonthPickerShown = false
     @Published var isYearPickerShown = false
     @Published var expireMonth = Constants.expireMonthString
     @Published var expireYear = Constants.expireYearString
-    @Published var textMonth = Constants.monthString
-    @Published var textYear = Constants.yearString
+    @Published var monthText = Constants.monthString
+    @Published var yearText = Constants.yearString
     @Published var expireMonthOnCardName = Constants.defaultExpireMonthName
     @Published var expireYearOnCardName = Constants.defaultExpireYearName
     @Published var isFrontCardShown = true
@@ -46,13 +46,7 @@ final class CardViewModel: ObservableObject {
     @Published var cardNumberText = Constants.emptyString
     @Published var cvcNumberText = Constants.emptyString
 
-    func getMonthString(newValue: String) {
-        textMonth = newValue
-    }
-
-    func getYearString(newValue: String) {
-        textYear = newValue
-    }
+    // MARK: - Public methods
 
     func flipCard() {
         if isFrontCardShown {

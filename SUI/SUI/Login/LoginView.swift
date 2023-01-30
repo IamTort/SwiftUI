@@ -131,7 +131,7 @@ struct LoginView: View {
         Image(systemName: Constants.errorImageString)
             .foregroundColor(.red)
             .padding(.trailing, 60)
-            .opacity(loginViewModel.isShowIconError ? 1 : 0)
+            .opacity(loginViewModel.isIconErrorShown ? 1 : 0)
     }
 
     private var lineView: some View {
@@ -216,7 +216,7 @@ struct LoginView: View {
     }
 
     private var singUpNavigationLinkView: some View {
-        NavigationLink(isActive: $loginViewModel.isShowChairScreen) {
+        NavigationLink(isActive: $loginViewModel.isChairScreenShown) {
             MainTabView()
                 .navigationBarBackButtonHidden(true)
         } label: {
