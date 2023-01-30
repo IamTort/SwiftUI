@@ -27,6 +27,8 @@ struct LoginView: View {
         static let twoNumber: CGFloat = 2
         static let phoneCountNumber = 18
         static let titleCornerRadiusNumber: CGFloat = 45
+        static let errorImageString = "person.fill.xmark"
+        static let emptyString = ""
     }
 
     // MARK: - Public Properties
@@ -41,10 +43,15 @@ struct LoginView: View {
                     phoneTextFieldView
                     lineView
                     passwordTitleView
-                    passwordTextFieldView
+                    HStack {
+                        passwordTextFieldView
+                        textFieldImageView
+                    }
                     lineView
+                        .modifier(ShakeGeometryEffect(animatableData: CGFloat(loginViewModel.attempts)))
                 }
                 VStack {
+                    progressView
                     verificationButtonView
                     singUpButtonView
                     singUpNavigationLinkView
@@ -120,6 +127,13 @@ struct LoginView: View {
             .focused($loginIsFocused)
     }
 
+    private var textFieldImageView: some View {
+        Image(systemName: Constants.errorImageString)
+            .foregroundColor(.red)
+            .padding(.trailing, 60)
+            .opacity(loginViewModel.isIconErrorShown ? 1 : 0)
+    }
+
     private var lineView: some View {
         Rectangle()
             .foregroundColor(Color(Constants.lightGrayColorName))
@@ -141,6 +155,7 @@ struct LoginView: View {
             .focused($passwordIsFocused)
             .keyboardType(.default)
             .foregroundColor(Color(Constants.lightGrayColorName))
+            .modifier(ShakeGeometryEffect(animatableData: CGFloat(loginViewModel.attempts)))
     }
 
     private var verificationButtonView: some View {
@@ -157,7 +172,9 @@ struct LoginView: View {
 
     private var singUpButtonView: some View {
         Button(Constants.singUpButtonTitle) {
-            loginViewModel.checkInfo()
+            withAnimation(.default) {
+                loginViewModel.checkInfo()
+            }
         }
         .alert(isPresented: $loginViewModel.isPasswordAlertShown) {
             Alert(
@@ -199,8 +216,9 @@ struct LoginView: View {
     }
 
     private var singUpNavigationLinkView: some View {
-        NavigationLink(isActive: $loginViewModel.isShowChairScreen) {
-            ProductView()
+        NavigationLink(isActive: $loginViewModel.isChairScreenShown) {
+            MainTabView()
+                .navigationBarBackButtonHidden(true)
         } label: {
             EmptyView()
         }
@@ -213,5 +231,20 @@ struct LoginView: View {
             EmptyView()
         }
         .padding(.bottom, 100)
+    }
+
+    private var progressView: some View {
+        ProgressView(
+            Constants.emptyString,
+            value: loginViewModel.progressViewCount,
+            total: loginViewModel.progressMaxCount
+        )
+        .padding(.horizontal, 40)
+    }
+}
+
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView()
     }
 }

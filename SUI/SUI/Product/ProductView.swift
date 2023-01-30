@@ -22,6 +22,7 @@ struct ProductView: View {
         static let progressViewScoreText = "/ 150"
         static let charCountNumber = 150
         static let squareViewPaddingNumber: CGFloat = 60
+        static let heartFillImageName = "heart.fill"
     }
 
     // MARK: - Public Properties
@@ -30,8 +31,8 @@ struct ProductView: View {
         ZStack {
             VStack {
                 navigationBarView
-                Spacer(minLength: 50)
-                VStack(spacing: 30) {
+                Spacer(minLength: 20)
+                VStack(spacing: 20) {
                     chairImageView
                     squareView
                     HStack {
@@ -42,10 +43,11 @@ struct ProductView: View {
                     charProgressView
                     textEditorView
                 }
-                Spacer(minLength: 130)
+                Spacer(minLength: 110)
             }
             .navigationBarBackButtonHidden(true)
         }
+        .gesture(magnificationGesture)
     }
 
     // MARK: - Private Properties
@@ -53,6 +55,23 @@ struct ProductView: View {
     @ObservedObject private var keyboard = KeyboardResponder()
 
     @StateObject private var chairViewModel = ProductViewModel()
+
+    private var magnificationGesture: some Gesture {
+        MagnificationGesture()
+            .onChanged { value in
+                chairViewModel.scale = value
+            }
+            .onEnded { _ in
+                chairViewModel.scale = 1
+            }
+    }
+
+    private var tapGesture: some Gesture {
+        TapGesture(count: 1)
+            .onEnded { _ in
+                chairViewModel.tapped.toggle()
+            }
+    }
 
     private var navigationBarView: some View {
         Rectangle()
@@ -72,6 +91,7 @@ struct ProductView: View {
             .resizable()
             .foregroundColor(.yellow)
             .frame(width: 200, height: 200)
+            .scaleEffect(chairViewModel.scale)
     }
 
     private var squareView: some View {
@@ -99,10 +119,11 @@ struct ProductView: View {
     }
 
     private var heartImageView: some View {
-        Image(systemName: Constants.heartImageName)
+        Image(systemName: chairViewModel.tapped ? Constants.heartFillImageName : Constants.heartImageName)
             .resizable()
             .frame(width: 45, height: 35)
             .foregroundColor(.red)
+            .gesture(tapGesture)
     }
 
     private var priceTextView: some View {

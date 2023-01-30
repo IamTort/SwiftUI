@@ -12,6 +12,7 @@ extension String {
         static let targetString = "[^0-9]"
         static let spaceString = " "
         static let phoneFormatString = "+X (XXX) XXX-XX-XX"
+        static let cardFormatString = "XXXX XXXX XXXX XXXX"
         static let elementChar: Character = "X"
         static let resultContainsString = "+7"
         static let elementCharacter: Character = "7"
@@ -47,5 +48,9 @@ extension String {
 
     func phoneFormat() -> String {
         formatPhone(with: Constants.phoneFormatString)
+    }
+
+    func cardFormat() -> String {
+        formatPhone(with: Constants.cardFormatString)
     }
 }

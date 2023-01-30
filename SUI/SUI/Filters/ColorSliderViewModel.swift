@@ -27,25 +27,25 @@ final class ColorSliderViewModel: ObservableObject {
     @Published var minimumValue = Constants.minimumValueNumber
     @Published var maximumValue = Constants.maximumValueNumber
     @Published var totalSliderWidth = UIScreen.main.bounds.width - Constants.paddingNumber
-    
+
     // MARK: - Public methods
 
     func sliderPxPerStep() -> CGFloat {
         sliderStep * (totalSliderWidth / maxPriceVal)
     }
-    
+
     func makeWidthSlider() -> CGFloat {
         maximumValue - minimumValue + sliderDotHeight + Constants.constNumber
     }
-    
+
     func makeMinimumValueText() -> String {
         "\(Int(minimumValue / sliderPxPerStep() * sliderStep))\(Constants.dolarString)"
     }
-    
+
     func makeMaximumValueText() -> String {
         "\(Int(maximumValue / sliderPxPerStep() * sliderStep))\(Constants.dolarString)"
     }
-    
+
     func makeChangeMaximumValue(value: DragGesture.Value) {
         if
             value.location.x >= minimumValue,
@@ -55,7 +55,7 @@ final class ColorSliderViewModel: ObservableObject {
             maximumValue = stpCnt * sliderPxPerStep()
         }
     }
-    
+
     func makeChangeMinimumValue(value: DragGesture.Value) {
         if
             value.location.x > 0,

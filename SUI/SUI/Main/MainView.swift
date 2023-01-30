@@ -17,6 +17,7 @@ struct MainView: View {
         static let opacityNumber = 0.9
         static let spaceNumber: CGFloat = 60
         static let tenSpaceNumber: CGFloat = 10
+        static let developmentString = "Разработано под чутким наблюдением Евгения Зверика и Александра Коха"
     }
 
     // MARK: - Public Properties
@@ -30,6 +31,9 @@ struct MainView: View {
                     titleTextView
                     asyncImageView
                     Spacer()
+                    if mainViewModel.isLongTap {
+                        developmentView
+                    }
                     startButtonView
                     navigationLinkView
                     VStack(spacing: Constants.tenSpaceNumber) {
@@ -50,30 +54,50 @@ struct MainView: View {
 
     @StateObject private var mainViewModel = MainViewModel()
 
+    private var longGesture: some Gesture {
+        LongPressGesture(minimumDuration: 2)
+            .onEnded { _ in
+                mainViewModel.isLongTap.toggle()
+                mainViewModel.longTapViewHide()
+            }
+    }
+
     private var titleTextView: some View {
         Text(Constants.titleString)
             .foregroundColor(.white)
             .font(.system(.largeTitle, design: .default))
             .bold()
             .multilineTextAlignment(.center)
+            .opacity(mainViewModel.isLoadingScreen ? 1 : 0)
+            .animation(.linear(duration: 0.5).delay(1), value: mainViewModel.isLoadingScreen)
     }
 
     private var startButtonView: some View {
-        Button(Constants.startButtonTitle) {
-            mainViewModel.isChairShown = true
+        ZStack {
+            Button(Constants.startButtonTitle) {
+                mainViewModel.isChairShown = true
+            }
+            .frame(width: 320, height: 80)
+            .background(.white)
+            .foregroundColor(Color(Constants.darkPurpleColorName))
+            .font(.system(size: 28, weight: .bold, design: .default))
+            .cornerRadius(40)
+            .padding(30)
+            .padding(.bottom, 20)
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.white)
+                .opacity(0.01)
+                .frame(width: 320, height: 80)
+                .gesture(longGesture)
         }
-        .frame(width: 320, height: 80)
-        .background(.white)
-        .foregroundColor(Color(Constants.darkPurpleColorName))
-        .font(.system(size: 28, weight: .bold, design: .default))
-        .cornerRadius(40)
-        .padding(30)
-        .padding(.bottom, 20)
+        .offset(x: mainViewModel.isLoadingScreen ? 0 : 600)
+        .animation(.linear(duration: 0.5).delay(1.5), value: mainViewModel.isLoadingScreen)
     }
 
     private var navigationLinkView: some View {
         NavigationLink(isActive: $mainViewModel.isChairShown) {
-            ProductView()
+            MainTabView()
+                .navigationBarBackButtonHidden(true)
         } label: {
             EmptyView()
         }
@@ -83,6 +107,8 @@ struct MainView: View {
         Text(Constants.questionString)
             .foregroundColor(.white)
             .font(.system(size: 20, weight: .bold, design: .rounded))
+            .offset(x: mainViewModel.isLoadingScreen ? 0 : 500)
+            .animation(.linear(duration: 0.5).delay(2.5), value: mainViewModel.isLoadingScreen)
     }
 
     private var loginNavigationLinkView: some View {
@@ -94,6 +120,8 @@ struct MainView: View {
                 .font(.system(size: 35, weight: .bold, design: .default))
                 .underline(true, color: .white)
         }
+        .offset(x: mainViewModel.isLoadingScreen ? 0 : 500)
+        .animation(.linear(duration: 0.5).delay(3.5), value: mainViewModel.isLoadingScreen)
     }
 
     private var asyncImageView: some View {
@@ -104,6 +132,9 @@ struct MainView: View {
             case .empty:
                 ProgressView()
                     .accentColor(.accentColor)
+                    .onAppear {
+                        mainViewModel.isLoadingScreen = true
+                    }
             case let .success(image):
                 image
                     .resizable()
@@ -127,6 +158,20 @@ struct MainView: View {
             startPoint: .top,
             endPoint: .bottom
         )
+    }
+
+    private var developmentView: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.white)
+                .frame(width: 300, height: 100, alignment: .center)
+            Text(Constants.developmentString)
+                .lineLimit(3)
+                .frame(width: 250, height: 100)
+                .font(.system(size: 15, weight: .bold, design: .default))
+        }
+        .opacity(mainViewModel.isLongTap ? 1 : 0)
+        .gesture(longGesture)
     }
 }
 

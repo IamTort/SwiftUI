@@ -24,19 +24,17 @@ struct FiltersView: View {
     // MARK: - Public property
 
     var body: some View {
-        NavigationView {
-            VStack {
-                navigationBarView
-                categoryTextView
-                scrollView
-                pricingTextView
-                ColorSliderView()
-                colorsTextView
-                ScrollView {
-                    colorsView
-                }
-                Spacer()
+        VStack {
+            navigationBarView
+            categoryTextView
+            scrollView
+            pricingTextView
+            ColorSliderView()
+            colorsTextView
+            ScrollView {
+                colorsView
             }
+            Spacer()
         }
         .navigationBarBackButtonHidden(true)
     }

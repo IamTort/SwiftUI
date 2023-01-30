@@ -30,17 +30,15 @@ struct ProductsView: View {
     // MARK: - Public Properties
 
     var body: some View {
-        NavigationView {
-            VStack {
-                navigationBarView
-                totalPriceTextView
-                ScrollView {
-                    rowsView
-                }
-                Spacer()
+        VStack {
+            navigationBarView
+            totalPriceTextView
+            ScrollView {
+                rowsView
             }
-            .navigationBarTitleDisplayMode(.inline)
+            Spacer()
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     // MARK: - Private Properties
