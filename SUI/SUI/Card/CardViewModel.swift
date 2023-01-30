@@ -10,17 +10,9 @@ final class CardViewModel: ObservableObject {
     private enum Constants {
         static let defaultCardNumberName = "0000 0000 0000 0000"
         static let ownerNameOnCardText = "Your Name"
-        static let defaultExpireMonthName = "05"
-        static let defaultExpireYearName = "20"
         static let emptyString = ""
         static let months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
         static let years = ["23", "24", "25", "26", "27", "28", "29", "30"]
-        static let expireMonthString = "06"
-        static let expireYearString = "26"
-        static let monthString = "Month"
-        static let yearString = "Year"
-        static let backDegreeNumber = -90.0
-        static let frontDegreeNumber = 0.0
     }
 
     // MARK: - Public Properties
@@ -29,15 +21,15 @@ final class CardViewModel: ObservableObject {
     @Published var years = Constants.years
     @Published var isMonthPickerShown = false
     @Published var isYearPickerShown = false
-    @Published var expireMonth = Constants.expireMonthString
-    @Published var expireYear = Constants.expireYearString
-    @Published var monthText = Constants.monthString
-    @Published var yearText = Constants.yearString
-    @Published var expireMonthOnCardName = Constants.defaultExpireMonthName
-    @Published var expireYearOnCardName = Constants.defaultExpireYearName
+    @Published var expireMonth = "06"
+    @Published var expireYear = "26"
+    @Published var monthText = "Month"
+    @Published var yearText = "Year"
+    @Published var expireMonthOnCardName = "05"
+    @Published var expireYearOnCardName = "20"
     @Published var isFrontCardShown = true
-    @Published var backDegree = Constants.backDegreeNumber
-    @Published var frontDegree = Constants.frontDegreeNumber
+    @Published var backDegree = -90.0
+    @Published var frontDegree = 0.0
     @Published var lastText = Constants.emptyString
     @Published var isAlertCodeShown = false
     @Published var isCardPlaceholderOn = false
