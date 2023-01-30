@@ -47,7 +47,7 @@ struct ProductView: View {
             }
             .navigationBarBackButtonHidden(true)
         }
-        .gesture(magnification)
+        .gesture(magnificationGesture)
     }
 
     // MARK: - Private Properties
@@ -56,7 +56,7 @@ struct ProductView: View {
 
     @StateObject private var chairViewModel = ProductViewModel()
 
-    private var magnification: some Gesture {
+    private var magnificationGesture: some Gesture {
         MagnificationGesture()
             .onChanged { value in
                 chairViewModel.scale = value
@@ -66,7 +66,7 @@ struct ProductView: View {
             }
     }
 
-    private var tap: some Gesture {
+    private var tapGesture: some Gesture {
         TapGesture(count: 1)
             .onEnded { _ in
                 chairViewModel.tapped.toggle()
@@ -123,7 +123,7 @@ struct ProductView: View {
             .resizable()
             .frame(width: 45, height: 35)
             .foregroundColor(.red)
-            .gesture(tap)
+            .gesture(tapGesture)
     }
 
     private var priceTextView: some View {
