@@ -36,7 +36,7 @@ struct MainView: View {
                 if mainViewModel.tagSelected == Constants.tagSelectedNumber {
                     closeCarControlView
                 }
-                Spacer()
+                Spacer(minLength: 300)
             }
         }
     }
@@ -105,7 +105,7 @@ struct MainView: View {
             RoundedRectangle(cornerRadius: 50)
                 .fill(Color(Constants.backgroundColorString))
         )
-//        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(true)
         .neumorphismUnSelectedStyle()
     }
 
@@ -120,15 +120,15 @@ struct MainView: View {
     private var closeCarControlView: some View {
         Button {
             withAnimation {
-                mainViewModel.isCarClose.toggle()
+                mainViewModel.isCarClosed.toggle()
             }
         } label: {
             HStack {
                 Label {
-                    Text(mainViewModel.isCarClose ? Constants.lockString : Constants.unlockString)
+                    Text(mainViewModel.isCarClosed ? Constants.lockString : Constants.unlockString)
                         .foregroundColor(.white)
                 } icon: {
-                    Image(systemName: mainViewModel.isCarClose ? Constants.unlockImageName : Constants.lockImageName)
+                    Image(systemName: mainViewModel.isCarClosed ? Constants.unlockImageName : Constants.lockImageName)
                         .renderingMode(.template)
                         .neumorphismUnSelectedCircleStyle()
                 }

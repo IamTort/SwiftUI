@@ -12,35 +12,34 @@ struct ClimateView: View {
         static let alertImageName = "questionmark.circle.fill"
         static let alertLinkString = "https://www.tesla.com/support"
         static let alertButtonString = "Cancel"
+        static let climateTitle = "CLIMATE"
+        static let emptyString = ""
+        static let airConditionString = "Ac"
+        static let sliderDotImageName = "slide"
+        static let fanString = "Fan"
+        static let heatString = "Heat"
+        static let avtoString = "Auto"
+        static let heatImageName = "heatIcon"
+        static let fanImageName = "fanIcon"
+        static let avtoImageName = "autoIcon"
+        static let acImageName = "snoIcon"
+        static let powerImageName = "power"
+        static let gearshapeImageName = "gearshapeIcon"
+        static let backChevronImageName = "backChevron"
+        static let lightShadowString = "lightShadow"
+        static let celsusString = "º C"
+        static let discGroupPaddingNumber: CGFloat = 40
     }
+
+    // MARK: - Public properties
 
     var body: some View {
         backgroundStackView(isLock: false) {
             ZStack {
                 VStack {
-                    HStack {
-                        Spacer()
-                        backButtonView
-                        Spacer()
-                        Text("CLIMATE")
-                            .foregroundColor(.white)
-                            .font(.system(size: 26, weight: .semibold, design: .default))
-                        Spacer()
-                        settingsButtonView
-                        Spacer()
-                    }
-                    .padding(.top, -10)
+                    titleView
                     circleView
-                        .padding(.top, 10)
-                    DisclosureGroup("", isExpanded: $climateViewModel.revealDetails) {
-                        VStack {
-                            acView
-                            fanView
-                            heatView
-                            autoView
-                        }
-                    }
-                    .frame(width: UIScreen.main.bounds.width - 40)
+                    disclosureGroupView
                     Spacer()
                 }
                 climateActionSheet
@@ -49,100 +48,103 @@ struct ClimateView: View {
                 }
             }
         }
-//        .ignoresSafeArea(edges: .top)
-//        .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea(edges: .top)
+        .navigationBarBackButtonHidden(true)
+        .environmentObject(climateViewModel)
     }
 
-//    @Environment(\.presentationMode) private var presentation
+    // MARK: - Private properties
 
-    @EnvironmentObject private var climateViewModel: ClimateViewModel
+    @Environment(\.presentationMode) private var presentation
 
-    @State var climateActionSheet = ActionSheetView()
-    @State var acSliderOffset: CGFloat = -85.0
-    @State var totalWidth: CGFloat = 115
-    @State var isSliderOn = false
-    var acView: some View {
+    @StateObject private var climateViewModel = ClimateViewModel()
+
+    @State private var climateActionSheet = ActionSheetView()
+
+    private var disclosureGroupView: some View {
+        DisclosureGroup(Constants.emptyString, isExpanded: $climateViewModel.revealDetails) {
+            VStack {
+                acView
+                fanView
+                heatView
+                autoView
+            }
+        }
+        .frame(width: UIScreen.main.bounds.width - Constants.discGroupPaddingNumber)
+    }
+
+    private var titleView: some View {
+        HStack {
+            Spacer()
+            backButtonView
+            Spacer()
+            Text(Constants.climateTitle)
+                .foregroundColor(.white)
+                .font(.system(size: 26, weight: .semibold, design: .default))
+            Spacer()
+            settingsButtonView
+            Spacer()
+        }
+        .padding(.top, 90)
+    }
+
+    private var acView: some View {
         HStack(spacing: 30) {
-            Text("Ac")
+            Text(Constants.airConditionString)
                 .fontWeight(.semibold)
-                .foregroundColor(isSliderOn ? .white : .gray)
+                .foregroundColor(climateViewModel.isSliderOn ? .white : .gray)
                 .frame(width: 40)
             snowButtonView
-            ZStack {
-                lineView
-                RoundedRectangle(cornerRadius: 2)
-                    .fill(climateViewModel.selectedColor)
-                    .frame(width: acSliderOffset + 85, height: 8)
-                    .offset(x: -55 + (acSliderOffset / 2))
-
-                Image("slide")
-                    .offset(x: acSliderOffset, y: 5)
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                if
-                                    value.location.x <= totalWidth,
-                                    value.location.x > -85
-                                {
-                                    isSliderOn = true
-                                    let stpCnt = floorf(Float(value.location.x / climateViewModel.sliderPxPerStep()))
-//                                    DispatchQueue.main.async {
-                                    acSliderOffset = CGFloat(stpCnt) * climateViewModel.sliderPxPerStep()
-//                                    }
-                                    climateViewModel.makeMinimumValueText(sliderOffset: acSliderOffset)
-                                }
-                            }
-                    )
-            }
+            ClimateSliderView()
         }
     }
 
-    var fanView: some View {
+    private var fanView: some View {
         HStack(spacing: 30) {
-            Text("Fan")
+            Text(Constants.fanString)
                 .fontWeight(.semibold)
                 .foregroundColor(.gray)
                 .frame(width: 40)
-            makeButtonView(imageName: "fanIcon")
+            makeButtonView(imageName: Constants.fanImageName)
             ZStack {
                 lineView
-                Image("slide")
+                Image(Constants.sliderDotImageName)
                     .offset(x: -85, y: 5)
             }
         }
     }
 
-    var heatView: some View {
+    private var heatView: some View {
         HStack(spacing: 30) {
-            Text("Heat")
+            Text(Constants.heatString)
                 .fontWeight(.semibold)
                 .foregroundColor(.gray)
                 .frame(width: 40)
-            makeButtonView(imageName: "heatIcon")
+            makeButtonView(imageName: Constants.heatImageName)
             ZStack {
                 lineView
-                Image("slide")
+                Image(Constants.sliderDotImageName)
                     .offset(x: -85, y: 5)
             }
         }
     }
 
-    var autoView: some View {
+    private var autoView: some View {
         HStack(spacing: 30) {
-            Text("Auto")
+            Text(Constants.avtoString)
                 .fontWeight(.semibold)
                 .foregroundColor(.gray)
                 .frame(width: 40)
-            makeButtonView(imageName: "autoIcon")
+            makeButtonView(imageName: Constants.avtoImageName)
             ZStack {
                 lineView
-                Image("slide")
+                Image(Constants.sliderDotImageName)
                     .offset(x: -85, y: 5)
             }
         }
     }
 
-    var buttonGradient: LinearGradient {
+    private var buttonGradient: LinearGradient {
         LinearGradient(
             colors: [.topBlue, .topGradient],
             startPoint: .init(x: 0, y: 0.5),
@@ -150,11 +152,11 @@ struct ClimateView: View {
         )
     }
 
-    var snowButtonView: some View {
+    private var snowButtonView: some View {
         Button {} label: {
-            Image("snoIcon")
+            Image(Constants.acImageName)
                 .frame(width: 20, height: 20)
-                .foregroundColor(isSliderOn ? .topGradient : .lightGray)
+                .foregroundColor(climateViewModel.isSliderOn ? .topGradient : .lightGray)
                 .neumorphismUnSelectedCircleStyle()
                 .overlay(
                     Circle()
@@ -164,7 +166,7 @@ struct ClimateView: View {
         }
     }
 
-    var onButtonView: some View {
+    private var onButtonView: some View {
         ZStack {
             Circle()
                 .fill(LinearGradient(
@@ -177,7 +179,7 @@ struct ClimateView: View {
             Button {
                 climateViewModel.isOnClimate.toggle()
             } label: {
-                Image("power")
+                Image(Constants.powerImageName)
                     .foregroundColor(.white)
                     .frame(width: 63, height: 63)
                     .background(
@@ -188,44 +190,31 @@ struct ClimateView: View {
         }
     }
 
-    func makeButtonView(imageName: String) -> some View {
-        Button {} label: {
-            Image(imageName)
-                .frame(width: 20, height: 20)
-                .neumorphismUnSelectedCircleStyle()
-                .overlay(
-                    Circle()
-                        .stroke(gradient, lineWidth: 2)
-                        .opacity(0)
-                )
-        }
-    }
-
-    var lineView: some View {
+    private var lineView: some View {
         RoundedRectangle(cornerRadius: 2)
             .fill(gradient)
             .frame(width: 200, height: 8)
     }
 
-    var settingsButtonView: some View {
+    private var settingsButtonView: some View {
         Button {
             climateViewModel.isAlertShown.toggle()
         } label: {
-            Image("gearshapeIcon")
+            Image(Constants.gearshapeImageName)
                 .neumorphismCircleButtonUnSelectedCircleStyle()
         }
     }
 
-    var backButtonView: some View {
+    private var backButtonView: some View {
         Button {
-//            self.presentation.wrappedValue.dismiss()
+            self.presentation.wrappedValue.dismiss()
         } label: {
-            Image("backChevron")
+            Image(Constants.backChevronImageName)
                 .neumorphismCircleButtonUnSelectedCircleStyle()
         }
     }
 
-    var circleView: some View {
+    private var circleView: some View {
         ZStack {
             Circle()
                 .fill(circleReverseGradient)
@@ -239,7 +228,6 @@ struct ClimateView: View {
                         .shadow(color: .lightShadow, radius: 7, x: -7, y: -7)
                         .shadow(color: .darkShadow, radius: 7, x: 7, y: 7)
                 )
-
             Circle()
                 .trim(
                     from: 0.0,
@@ -254,12 +242,16 @@ struct ClimateView: View {
                 .rotationEffect(.degrees(-110))
                 .padding(40)
 
-            Text(climateViewModel.isOnClimate ? "\(climateViewModel.currentCelsus)º C" : "")
-                .font(.system(size: 30, weight: .bold, design: .default))
+            Text(
+                climateViewModel.isOnClimate ? "\(climateViewModel.currentCelsus)\(Constants.celsusString)" : Constants
+                    .emptyString
+            )
+            .font(.system(size: 30, weight: .bold, design: .default))
         }
+        .padding(.top, 10)
     }
 
-    var ellipseGradient: LinearGradient {
+    private var ellipseGradient: LinearGradient {
         LinearGradient(
             colors: [.black, .topGradient.opacity(0.3)],
             startPoint: .top,
@@ -267,7 +259,7 @@ struct ClimateView: View {
         )
     }
 
-    var gradient: LinearGradient {
+    private var gradient: LinearGradient {
         LinearGradient(
             colors: [.black.opacity(0.5), .lightShadow],
             startPoint: .top,
@@ -275,7 +267,7 @@ struct ClimateView: View {
         )
     }
 
-    var circleGradient: LinearGradient {
+    private var circleGradient: LinearGradient {
         LinearGradient(
             colors: [.darkShadow, .lightShadow],
             startPoint: .topLeading,
@@ -283,7 +275,7 @@ struct ClimateView: View {
         )
     }
 
-    var circleReverseGradient: LinearGradient {
+    private var circleReverseGradient: LinearGradient {
         LinearGradient(
             colors: [.lightShadow, .black.opacity(0.2)],
             startPoint: .topLeading,
@@ -305,7 +297,7 @@ struct ClimateView: View {
         .padding(35)
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color("lightShadow"))
+                .fill(Color(Constants.lightShadowString))
         )
         .padding(.top, 100)
         .shadow(radius: 15)
@@ -327,6 +319,21 @@ struct ClimateView: View {
             }
         }
         .foregroundColor(.red)
+    }
+
+    // MARK: - Private methods
+
+    private func makeButtonView(imageName: String) -> some View {
+        Button {} label: {
+            Image(imageName)
+                .frame(width: 20, height: 20)
+                .neumorphismUnSelectedCircleStyle()
+                .overlay(
+                    Circle()
+                        .stroke(gradient, lineWidth: 2)
+                        .opacity(0)
+                )
+        }
     }
 }
 

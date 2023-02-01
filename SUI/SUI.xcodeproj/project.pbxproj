@@ -23,6 +23,7 @@
 		FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF42975F2F600D22F4D /* MainView.swift */; };
 		FAC67BF72975F2F700D22F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF62975F2F700D22F4D /* Assets.xcassets */; };
 		FAC67BFA2975F2F700D22F4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF92975F2F700D22F4D /* Preview Assets.xcassets */; };
+		FAC9CC51298A64A700A2FF53 /* ClimateSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9CC50298A64A700A2FF53 /* ClimateSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		FAC67BF42975F2F600D22F4D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FAC67BF62975F2F700D22F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC67BF92975F2F700D22F4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAC9CC50298A64A700A2FF53 /* ClimateSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				FAC67BF42975F2F600D22F4D /* MainView.swift */,
 				FAA42B3D2989F12C00150FB5 /* MainViewModel.swift */,
 				FA672903298856820043A79E /* ClimateView.swift */,
+				FAC9CC50298A64A700A2FF53 /* ClimateSliderView.swift */,
 				FAA657F52989A77C00903407 /* ClimateViewModel.swift */,
 				FA672905298985390043A79E /* ActionSheetView.swift */,
 				FA6728FD298839CC0043A79E /* NeumorphismUnSelectedCircle.swift */,
@@ -222,6 +225,7 @@
 				FA6728F8298839430043A79E /* View+Extension.swift in Sources */,
 				FA672906298985390043A79E /* ActionSheetView.swift in Sources */,
 				FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */,
+				FAC9CC51298A64A700A2FF53 /* ClimateSliderView.swift in Sources */,
 				FAA42B3E2989F12C00150FB5 /* MainViewModel.swift in Sources */,
 				FAA657F62989A77C00903407 /* ClimateViewModel.swift in Sources */,
 				FAA42B3A2989E0B100150FB5 /* Color+Extension.swift in Sources */,

@@ -3,16 +3,26 @@
 
 import SwiftUI
 
-/// friy ibn
+/// Выезжающая снизу вью
 struct ActionSheetView: View {
+    // MARK: - Private Constants
+
+    private enum Constants {
+        static let dotOffsetNumber: CGFloat = 85
+        static let sliderLightOffsetNumber: CGFloat = -55
+        static let titleText = "A/C is ON"
+        static let descriptionText = "Tap to turn off or swipe up for a fast setup"
+        static let emptyString = ""
+        static let celsusString = "º"
+        static let carDoorImageName = "carDoor"
+        static let onString = "On"
+        static let ventString = "Vent"
+        static let backImageName = "backChevron"
+        static let nextImageName = "nextChevron"
+        static let powerImageName = "power"
+    }
+
     // MARK: - Public properties
-
-    @EnvironmentObject private var climateViewModel: ClimateViewModel
-
-    @GestureState private var gestureOffset = CGSize.zero
-
-    @State private var currentMenuOffsetY: CGFloat = 0.0
-    @State private var lastMenuOffsetY: CGFloat = 0.0
 
     var body: some View {
         VStack {
@@ -21,40 +31,22 @@ struct ActionSheetView: View {
                 .frame(width: 80, height: 3)
                 .padding(.top)
             HStack(spacing: 60) {
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("A/C is ON")
-                        .font(.system(size: 20, weight: .bold, design: .default))
-                        .foregroundColor(.white)
-
-                    Text("Tap to turn off or swipe up for a fast setup")
-                        .lineLimit(2)
-                        .frame(width: 200, alignment: .leading)
-                        .foregroundColor(.gray)
-                }
-                .padding(.leading)
+                titleTextView
                 onButtonView
             }
             .padding(.bottom, 20)
             HStack(spacing: 30) {
-                ColorPicker("", selection: $climateViewModel.selectedColor)
+                ColorPicker(Constants.emptyString, selection: $climateViewModel.selectedColor)
                 Spacer()
                 decreaseButtonView
-                Text("\(climateViewModel.currentCelsus)º")
-                    .font(.system(size: 30, weight: .medium, design: .default))
-                    .frame(width: 50)
+                celsusTextView
                 increaseButtonView
                 Spacer()
-                Image("carDoor")
+                Image(Constants.carDoorImageName)
             }
             .padding(.horizontal, 40)
             .padding(.bottom, 20)
-            HStack {
-                Text("On")
-                Spacer()
-                Text("Vent")
-            }
-            .padding(.horizontal, 40)
-
+            bottomTextView
             Spacer()
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
@@ -63,12 +55,50 @@ struct ActionSheetView: View {
             RoundedRectangle(cornerRadius: 40)
         )
         .ignoresSafeArea(.all, edges: .bottom)
-        .offset(y: UIScreen.main.bounds.height / 2 + 75)
+        .offset(y: UIScreen.main.bounds.height / 2 + 120)
         .offset(y: currentMenuOffsetY)
         .gesture(dragGesture)
     }
 
-    var dragGesture: some Gesture {
+    // MARK: - Private properties
+
+    @EnvironmentObject private var climateViewModel: ClimateViewModel
+
+    @GestureState private var gestureOffset = CGSize.zero
+
+    @State private var currentMenuOffsetY: CGFloat = 0.0
+    @State private var lastMenuOffsetY: CGFloat = 0.0
+
+    private var titleTextView: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text(Constants.titleText)
+                .font(.system(size: 20, weight: .bold, design: .default))
+                .foregroundColor(.white)
+
+            Text(Constants.descriptionText)
+                .lineLimit(2)
+                .frame(width: 200, alignment: .leading)
+                .foregroundColor(.gray)
+        }
+        .padding(.leading)
+    }
+
+    private var bottomTextView: some View {
+        HStack {
+            Text(Constants.onString)
+            Spacer()
+            Text(Constants.ventString)
+        }
+        .padding(.horizontal, 40)
+    }
+
+    private var celsusTextView: some View {
+        Text("\(climateViewModel.currentCelsus)\(Constants.celsusString)")
+            .font(.system(size: 30, weight: .medium, design: .default))
+            .frame(width: 50)
+    }
+
+    private var dragGesture: some Gesture {
         DragGesture()
             .updating($gestureOffset) { value, state, _ in
                 state = value.translation
@@ -87,7 +117,7 @@ struct ActionSheetView: View {
             }
     }
 
-    var onButtonView: some View {
+    private var onButtonView: some View {
         ZStack {
             Circle()
                 .fill(LinearGradient(
@@ -100,7 +130,7 @@ struct ActionSheetView: View {
             Button {
                 climateViewModel.isOnClimate.toggle()
             } label: {
-                Image("power")
+                Image(Constants.powerImageName)
                     .foregroundColor(.white)
                     .frame(width: 63, height: 63)
                     .background(
@@ -111,27 +141,25 @@ struct ActionSheetView: View {
         }
     }
 
-    var decreaseButtonView: some View {
+    private var decreaseButtonView: some View {
         Button {
-            guard climateViewModel.currentCelsus > climateViewModel.minCelsus else { return }
-            climateViewModel.currentCelsus -= 1
+            climateViewModel.decreaseValue()
             climateViewModel.getCircleGradus()
         } label: {
-            Image("backChevron")
+            Image(Constants.backImageName)
         }
     }
 
-    var increaseButtonView: some View {
+    private var increaseButtonView: some View {
         Button {
-            guard climateViewModel.currentCelsus < climateViewModel.maxCelsus else { return }
-            climateViewModel.currentCelsus += 1
+            climateViewModel.increaseValue()
             climateViewModel.getCircleGradus()
         } label: {
-            Image("nextChevron")
+            Image(Constants.nextImageName)
         }
     }
 
-    var buttonGradient: LinearGradient {
+    private var buttonGradient: LinearGradient {
         LinearGradient(
             colors: [.topBlue, .topGradient],
             startPoint: .init(x: 0, y: 0.5),
@@ -139,7 +167,9 @@ struct ActionSheetView: View {
         )
     }
 
-    func onChangeMenuOffset() {
+    // MARK: - Public methods
+
+    private func onChangeMenuOffset() {
         DispatchQueue.main.async {
             currentMenuOffsetY = gestureOffset.height + lastMenuOffsetY
         }

@@ -7,7 +7,7 @@ import Foundation
 final class MainViewModel: ObservableObject {
     // MARK: - Public properties
 
-    @Published var isCarClose = false
+    @Published var isCarClosed = false
     @Published var isClimateShown = false
     @Published var tagSelected = 0
 }

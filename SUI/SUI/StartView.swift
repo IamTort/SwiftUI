@@ -44,24 +44,11 @@ struct StartView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .environmentObject(climateViewModel)
     }
 
     // MARK: - Private properties
 
-    @StateObject private var climateViewModel = ClimateViewModel()
     @StateObject private var startViewModel = StartViewModel()
-
-//    private var navigationBarView: some View {
-//        ZStack {
-//            Rectangle()
-//                .fill(Color.clear)
-//                .frame(height: 30)
-//                .navigationBarItems(
-//                    trailing: settingsButtonView
-//                )
-//        }
-//    }
 
     private var carImageView: some View {
         Image(startViewModel.isCarClose ? Constants.teslaLockedImageName : Constants.teslaUnlockedImageName)
