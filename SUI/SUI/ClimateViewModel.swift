@@ -8,14 +8,14 @@ final class ClimateViewModel: ObservableObject {
     // MARK: - Public properties
 
     @Published var isOnClimate = false
+    @Published var isAlertShown = false
+    @Published var isSliderOn = false
+    @Published var revealDetails = true
     @Published var minCelsus: CGFloat = 15
     @Published var maxCelsus: CGFloat = 30
     @Published var currentCelsus = 15
-    @Published var isAlertShown = false
-    @Published var revealDetails = true
     @Published var circleProgress: CGFloat = 0.0
     @Published var selectedColor: Color = .topGradient
-    @Published var isSliderOn = false
 
     // MARK: - Private property
 
@@ -42,6 +42,13 @@ final class ClimateViewModel: ObservableObject {
     func decreaseValue() {
         guard currentCelsus > Int(minCelsus) else { return }
         currentCelsus -= 1
+    }
+
+    func sliderMove(value: DragGesture.Value) -> CGFloat {
+        isSliderOn = true
+        let stpCnt = floorf(Float(value.location.x / sliderPxPerStep()))
+        makeMinimumValueText(sliderOffset: CGFloat(stpCnt) * sliderPxPerStep())
+        return CGFloat(stpCnt) * sliderPxPerStep()
     }
 
     // MARK: - Private methods

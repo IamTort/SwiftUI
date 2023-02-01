@@ -5,6 +5,8 @@ import SwiftUI
 
 /// Стиль нейморфизм круглая кнопка
 struct NeumorphismCircleButtonUnSelectedCircle: ViewModifier {
+    // MARK: - Public property
+
     func body(content: Content) -> some View {
         content
             .frame(width: 20, height: 20)

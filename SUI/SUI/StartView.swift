@@ -43,7 +43,6 @@ struct StartView: View {
                 }
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
 
     // MARK: - Private properties

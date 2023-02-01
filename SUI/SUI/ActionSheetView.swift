@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-/// Выезжающая снизу вью
+/// Кастомный BottomSheet
 struct ActionSheetView: View {
     // MARK: - Private Constants
 
@@ -56,7 +56,7 @@ struct ActionSheetView: View {
         )
         .ignoresSafeArea(.all, edges: .bottom)
         .offset(y: UIScreen.main.bounds.height / 2 + 120)
-        .offset(y: currentMenuOffsetY)
+        .offset(y: actionSheetViewModel.currentMenuOffsetY)
         .gesture(dragGesture)
     }
 
@@ -64,10 +64,9 @@ struct ActionSheetView: View {
 
     @EnvironmentObject private var climateViewModel: ClimateViewModel
 
-    @GestureState private var gestureOffset = CGSize.zero
+    @StateObject private var actionSheetViewModel = ActionSheetViewModel()
 
-    @State private var currentMenuOffsetY: CGFloat = 0.0
-    @State private var lastMenuOffsetY: CGFloat = 0.0
+    @GestureState private var gestureOffset = CGSize.zero
 
     private var titleTextView: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -105,14 +104,8 @@ struct ActionSheetView: View {
                 onChangeMenuOffset()
             }
             .onEnded { _ in
-                let maxHeight = UIScreen.main.bounds.height / 6
                 withAnimation {
-                    if -currentMenuOffsetY > maxHeight / 2 {
-                        currentMenuOffsetY = -maxHeight
-                    } else {
-                        currentMenuOffsetY = 0
-                    }
-                    lastMenuOffsetY = currentMenuOffsetY
+                    actionSheetViewModel.getYOffset()
                 }
             }
     }
@@ -167,11 +160,11 @@ struct ActionSheetView: View {
         )
     }
 
-    // MARK: - Public methods
+    // MARK: - Private methods
 
     private func onChangeMenuOffset() {
         DispatchQueue.main.async {
-            currentMenuOffsetY = gestureOffset.height + lastMenuOffsetY
+            actionSheetViewModel.currentMenuOffsetY = gestureOffset.height + actionSheetViewModel.lastMenuOffsetY
         }
     }
 }

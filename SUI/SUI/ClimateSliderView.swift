@@ -3,14 +3,40 @@
 
 import SwiftUI
 
-/// Cлайдер
+/// Кастомный слайдер
 struct ClimateSliderView: View {
     // MARK: - Private Constants
 
     private enum Constants {
-        static let dotOffsetNumber: CGFloat = 85
+        static let dotOffsetNumber: CGFloat = 100
         static let sliderLightOffsetNumber: CGFloat = -55
         static let sliderDotImageName = "slide"
+    }
+
+    // MARK: - Public property
+
+    var body: some View {
+        ZStack {
+            lineView
+            RoundedRectangle(cornerRadius: 2)
+                .fill(climateViewModel.selectedColor)
+                .frame(width: acSliderOffset + Constants.dotOffsetNumber, height: 8)
+                .offset(x: Constants.sliderLightOffsetNumber + (acSliderOffset / 2))
+            
+            Image(Constants.sliderDotImageName)
+                .offset(x: acSliderOffset, y: 5)
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            if
+                                value.location.x <= totalWidth,
+                                value.location.x > -85
+                            {
+                                acSliderOffset = climateViewModel.sliderMove(value: value)
+                            }
+                        }
+                )
+        }
     }
 
     // MARK: - Private property
@@ -24,33 +50,6 @@ struct ClimateSliderView: View {
     @State private var acSliderOffset: CGFloat = -85.0
     @State private var totalWidth: CGFloat = 115
     @State private var isSliderOn = false
-
-    var body: some View {
-        ZStack {
-            lineView
-            RoundedRectangle(cornerRadius: 2)
-                .fill(climateViewModel.selectedColor)
-                .frame(width: acSliderOffset + Constants.dotOffsetNumber, height: 8)
-                .offset(x: Constants.sliderLightOffsetNumber + (acSliderOffset / 2))
-
-            Image(Constants.sliderDotImageName)
-                .offset(x: acSliderOffset, y: 5)
-                .gesture(
-                    DragGesture()
-                        .onChanged { value in
-                            if
-                                value.location.x <= totalWidth,
-                                value.location.x > -85
-                            {
-                                climateViewModel.isSliderOn = true
-                                let stpCnt = floorf(Float(value.location.x / sliderPxPerStep()))
-                                acSliderOffset = CGFloat(stpCnt) * sliderPxPerStep()
-                                climateViewModel.makeMinimumValueText(sliderOffset: acSliderOffset)
-                            }
-                        }
-                )
-        }
-    }
 
     private var lineView: some View {
         RoundedRectangle(cornerRadius: 2)

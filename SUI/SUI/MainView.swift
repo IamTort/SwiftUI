@@ -38,6 +38,7 @@ struct MainView: View {
                 }
                 Spacer(minLength: 300)
             }
+            .navigationBarBackButtonHidden(true)
         }
     }
 
@@ -75,8 +76,6 @@ struct MainView: View {
         LinearGradient(colors: [.topGradient, .bottomGradient], startPoint: .bottom, endPoint: .top)
     }
 
-    @State var isClimateShown = false
-
     private var controlPanelView: some View {
         HStack(spacing: 30) {
             ForEach(1 ..< 5) { index in
@@ -105,7 +104,6 @@ struct MainView: View {
             RoundedRectangle(cornerRadius: 50)
                 .fill(Color(Constants.backgroundColorString))
         )
-        .navigationBarBackButtonHidden(true)
         .neumorphismUnSelectedStyle()
     }
 
