@@ -42,4 +42,8 @@ extension View {
             content()
         }
     }
+
+    func myTabItem(_ label: () -> TabItem) -> some View {
+        modifier(TabItemModifier(tabBarItem: label()))
+    }
 }
