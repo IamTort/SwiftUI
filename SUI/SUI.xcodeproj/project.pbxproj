@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA559243298BA1DF00A59273 /* ClimateSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA559242298BA1DF00A59273 /* ClimateSliderView.swift */; };
 		FA6728F8298839430043A79E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6728F7298839430043A79E /* View+Extension.swift */; };
 		FA6728FA298839970043A79E /* NeumorphismUnSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6728F9298839970043A79E /* NeumorphismUnSelected.swift */; };
 		FA6728FC298839B30043A79E /* NeumorphismSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6728FB298839B30043A79E /* NeumorphismSelected.swift */; };
@@ -23,11 +24,11 @@
 		FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF42975F2F600D22F4D /* MainView.swift */; };
 		FAC67BF72975F2F700D22F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF62975F2F700D22F4D /* Assets.xcassets */; };
 		FAC67BFA2975F2F700D22F4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF92975F2F700D22F4D /* Preview Assets.xcassets */; };
-		FAC9CC51298A64A700A2FF53 /* ClimateSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9CC50298A64A700A2FF53 /* ClimateSliderView.swift */; };
 		FAC9CC53298AA88800A2FF53 /* ActionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9CC52298AA88800A2FF53 /* ActionSheetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA559242298BA1DF00A59273 /* ClimateSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateSliderView.swift; sourceTree = "<group>"; };
 		FA6728F7298839430043A79E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		FA6728F9298839970043A79E /* NeumorphismUnSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismUnSelected.swift; sourceTree = "<group>"; };
 		FA6728FB298839B30043A79E /* NeumorphismSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismSelected.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		FAC67BF42975F2F600D22F4D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FAC67BF62975F2F700D22F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC67BF92975F2F700D22F4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FAC9CC50298A64A700A2FF53 /* ClimateSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateSliderView.swift; sourceTree = "<group>"; };
 		FAC9CC52298AA88800A2FF53 /* ActionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +85,7 @@
 				FAC67BF42975F2F600D22F4D /* MainView.swift */,
 				FAA42B3D2989F12C00150FB5 /* MainViewModel.swift */,
 				FA672903298856820043A79E /* ClimateView.swift */,
-				FAC9CC50298A64A700A2FF53 /* ClimateSliderView.swift */,
+				FA559242298BA1DF00A59273 /* ClimateSliderView.swift */,
 				FAA657F52989A77C00903407 /* ClimateViewModel.swift */,
 				FA672905298985390043A79E /* ActionSheetView.swift */,
 				FAC9CC52298AA88800A2FF53 /* ActionSheetViewModel.swift */,
@@ -228,7 +228,6 @@
 				FA6728F8298839430043A79E /* View+Extension.swift in Sources */,
 				FA672906298985390043A79E /* ActionSheetView.swift in Sources */,
 				FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */,
-				FAC9CC51298A64A700A2FF53 /* ClimateSliderView.swift in Sources */,
 				FAC9CC53298AA88800A2FF53 /* ActionSheetViewModel.swift in Sources */,
 				FAA42B3E2989F12C00150FB5 /* MainViewModel.swift in Sources */,
 				FAA657F62989A77C00903407 /* ClimateViewModel.swift in Sources */,
@@ -237,6 +236,7 @@
 				FA672904298856820043A79E /* ClimateView.swift in Sources */,
 				FA672902298843310043A79E /* StartView.swift in Sources */,
 				FAA657F82989CE0300903407 /* NeumorphismCircleButtonUnSelectedCircle.swift in Sources */,
+				FA559243298BA1DF00A59273 /* ClimateSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

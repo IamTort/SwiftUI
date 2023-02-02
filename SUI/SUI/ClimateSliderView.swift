@@ -22,7 +22,6 @@ struct ClimateSliderView: View {
                 .fill(climateViewModel.selectedColor)
                 .frame(width: acSliderOffset + Constants.dotOffsetNumber, height: 8)
                 .offset(x: Constants.sliderLightOffsetNumber + (acSliderOffset / 2))
-            
             Image(Constants.sliderDotImageName)
                 .offset(x: acSliderOffset, y: 5)
                 .gesture(
