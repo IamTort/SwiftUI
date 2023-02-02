@@ -52,6 +52,17 @@ struct ChargingView: View {
                 Spacer()
             }
         }
+        .offset(x: CGFloat(offsetX))
+        .onAppear {
+            withAnimation(.linear(duration: 0.4).delay(2)) {
+                offsetX = 0
+            }
+        }
+        .onDisappear {
+            withAnimation(.linear(duration: 0.4).delay(2)) {
+                offsetX = -500
+            }
+        }
     }
 
     // MARK: - Private properties
@@ -59,6 +70,8 @@ struct ChargingView: View {
     @Environment(\.presentationMode) private var presentation
 
     @StateObject private var chargingViewModel = ChargingViewModel()
+
+    @State var offsetX = 500
 
     @Namespace private var nameSpace
 

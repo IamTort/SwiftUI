@@ -5,7 +5,6 @@ import SwiftUI
 
 /// Kacтомный таббар
 struct TeslaTabBarView<Content: View>: View {
-    
     // MARK: - Public property
 
     @Binding var selection: Int

@@ -11,12 +11,12 @@ struct TeslaTabBarShape: Shape {
         var path = Path()
         path.move(to: CGPoint(x: rect.midX, y: rect.midY - 10))
         path.addQuadCurve(
-            to: CGPoint(x: rect.midX + 20, y: rect.midY - 20),
-            control: CGPoint(x: rect.midX + 10, y: rect.midY - 10)
+            to: CGPoint(x: rect.midX + 32, y: rect.midY - 20),
+            control: CGPoint(x: rect.midX + 10, y: rect.midY - 8)
         )
         path.addQuadCurve(
-            to: CGPoint(x: rect.midX + 60, y: rect.midY - 40),
-            control: CGPoint(x: rect.midX + 40, y: rect.midY - 40)
+            to: CGPoint(x: rect.midX + 100, y: rect.midY - 40),
+            control: CGPoint(x: rect.midX + 50, y: rect.midY - 40)
         )
         path.addLine(to: CGPoint(x: rect.maxX - 40, y: rect.midY - 40))
         path.addQuadCurve(
@@ -37,10 +37,10 @@ struct TeslaTabBarShape: Shape {
             to: CGPoint(x: 40, y: rect.midY - 40),
             control: CGPoint(x: 20, y: rect.midY - 40)
         )
-        path.addLine(to: CGPoint(x: rect.midX - 60, y: rect.midY - 40))
+        path.addLine(to: CGPoint(x: rect.midX - 100, y: rect.midY - 40))
         path.addQuadCurve(
-            to: CGPoint(x: rect.midX - 20, y: rect.midY - 20),
-            control: CGPoint(x: rect.midX - 40, y: rect.midY - 40)
+            to: CGPoint(x: rect.midX - 32, y: rect.midY - 20),
+            control: CGPoint(x: rect.midX - 50, y: rect.midY - 40)
         )
         path.addQuadCurve(
             to: CGPoint(x: rect.midX, y: rect.midY - 10),
