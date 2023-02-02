@@ -7,18 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA6728F8298839430043A79E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6728F7298839430043A79E /* View+Extension.swift */; };
+		FA6728FA298839970043A79E /* NeumorphismUnSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6728F9298839970043A79E /* NeumorphismUnSelected.swift */; };
+		FA6728FC298839B30043A79E /* NeumorphismSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6728FB298839B30043A79E /* NeumorphismSelected.swift */; };
+		FA6728FE298839CC0043A79E /* NeumorphismUnSelectedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6728FD298839CC0043A79E /* NeumorphismUnSelectedCircle.swift */; };
+		FA672902298843310043A79E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA672901298843310043A79E /* StartView.swift */; };
+		FA672904298856820043A79E /* ClimateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA672903298856820043A79E /* ClimateView.swift */; };
+		FA672906298985390043A79E /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA672905298985390043A79E /* ActionSheetView.swift */; };
+		FAA42B3A2989E0B100150FB5 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA42B392989E0B100150FB5 /* Color+Extension.swift */; };
+		FAA42B3C2989E45B00150FB5 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA42B3B2989E45B00150FB5 /* StartViewModel.swift */; };
+		FAA42B3E2989F12C00150FB5 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA42B3D2989F12C00150FB5 /* MainViewModel.swift */; };
+		FAA657F62989A77C00903407 /* ClimateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA657F52989A77C00903407 /* ClimateViewModel.swift */; };
+		FAA657F82989CE0300903407 /* NeumorphismCircleButtonUnSelectedCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA657F72989CE0300903407 /* NeumorphismCircleButtonUnSelectedCircle.swift */; };
 		FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF22975F2F600D22F4D /* SUIApp.swift */; };
-		FAC67BF52975F2F600D22F4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF42975F2F600D22F4D /* ContentView.swift */; };
+		FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC67BF42975F2F600D22F4D /* MainView.swift */; };
 		FAC67BF72975F2F700D22F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF62975F2F700D22F4D /* Assets.xcassets */; };
 		FAC67BFA2975F2F700D22F4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC67BF92975F2F700D22F4D /* Preview Assets.xcassets */; };
+		FAC9CC51298A64A700A2FF53 /* ClimateSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9CC50298A64A700A2FF53 /* ClimateSliderView.swift */; };
+		FAC9CC53298AA88800A2FF53 /* ActionSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9CC52298AA88800A2FF53 /* ActionSheetViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA6728F7298839430043A79E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		FA6728F9298839970043A79E /* NeumorphismUnSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismUnSelected.swift; sourceTree = "<group>"; };
+		FA6728FB298839B30043A79E /* NeumorphismSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismSelected.swift; sourceTree = "<group>"; };
+		FA6728FD298839CC0043A79E /* NeumorphismUnSelectedCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismUnSelectedCircle.swift; sourceTree = "<group>"; };
+		FA672901298843310043A79E /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		FA672903298856820043A79E /* ClimateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateView.swift; sourceTree = "<group>"; };
+		FA672905298985390043A79E /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
+		FAA42B392989E0B100150FB5 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		FAA42B3B2989E45B00150FB5 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		FAA42B3D2989F12C00150FB5 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		FAA657F52989A77C00903407 /* ClimateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateViewModel.swift; sourceTree = "<group>"; };
+		FAA657F72989CE0300903407 /* NeumorphismCircleButtonUnSelectedCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismCircleButtonUnSelectedCircle.swift; sourceTree = "<group>"; };
 		FAC67BEF2975F2F600D22F4D /* SUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC67BF22975F2F600D22F4D /* SUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIApp.swift; sourceTree = "<group>"; };
-		FAC67BF42975F2F600D22F4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FAC67BF42975F2F600D22F4D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FAC67BF62975F2F700D22F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC67BF92975F2F700D22F4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAC9CC50298A64A700A2FF53 /* ClimateSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimateSliderView.swift; sourceTree = "<group>"; };
+		FAC9CC52298AA88800A2FF53 /* ActionSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +80,21 @@
 			isa = PBXGroup;
 			children = (
 				FAC67BF22975F2F600D22F4D /* SUIApp.swift */,
-				FAC67BF42975F2F600D22F4D /* ContentView.swift */,
+				FA672901298843310043A79E /* StartView.swift */,
+				FAA42B3B2989E45B00150FB5 /* StartViewModel.swift */,
+				FAC67BF42975F2F600D22F4D /* MainView.swift */,
+				FAA42B3D2989F12C00150FB5 /* MainViewModel.swift */,
+				FA672903298856820043A79E /* ClimateView.swift */,
+				FAC9CC50298A64A700A2FF53 /* ClimateSliderView.swift */,
+				FAA657F52989A77C00903407 /* ClimateViewModel.swift */,
+				FA672905298985390043A79E /* ActionSheetView.swift */,
+				FAC9CC52298AA88800A2FF53 /* ActionSheetViewModel.swift */,
+				FA6728FD298839CC0043A79E /* NeumorphismUnSelectedCircle.swift */,
+				FAA657F72989CE0300903407 /* NeumorphismCircleButtonUnSelectedCircle.swift */,
+				FA6728FB298839B30043A79E /* NeumorphismSelected.swift */,
+				FA6728F9298839970043A79E /* NeumorphismUnSelected.swift */,
+				FA6728F7298839430043A79E /* View+Extension.swift */,
+				FAA42B392989E0B100150FB5 /* Color+Extension.swift */,
 				FAC67BF62975F2F700D22F4D /* Assets.xcassets */,
 				FAC67BF82975F2F700D22F4D /* Preview Content */,
 			);
@@ -77,6 +119,8 @@
 				FAC67BEB2975F2F600D22F4D /* Sources */,
 				FAC67BEC2975F2F600D22F4D /* Frameworks */,
 				FAC67BED2975F2F600D22F4D /* Resources */,
+				FA6728FF29883C260043A79E /* Run SwiftFormat */,
+				FA67290029883C4A0043A79E /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -132,13 +176,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FA6728FF29883C260043A79E /* Run SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftFormat";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+		FA67290029883C4A0043A79E /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FAC67BEB2975F2F600D22F4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC67BF52975F2F600D22F4D /* ContentView.swift in Sources */,
+				FAA42B3C2989E45B00150FB5 /* StartViewModel.swift in Sources */,
+				FAC67BF52975F2F600D22F4D /* MainView.swift in Sources */,
+				FA6728FA298839970043A79E /* NeumorphismUnSelected.swift in Sources */,
+				FA6728FC298839B30043A79E /* NeumorphismSelected.swift in Sources */,
+				FA6728F8298839430043A79E /* View+Extension.swift in Sources */,
+				FA672906298985390043A79E /* ActionSheetView.swift in Sources */,
 				FAC67BF32975F2F600D22F4D /* SUIApp.swift in Sources */,
+				FAC9CC51298A64A700A2FF53 /* ClimateSliderView.swift in Sources */,
+				FAC9CC53298AA88800A2FF53 /* ActionSheetViewModel.swift in Sources */,
+				FAA42B3E2989F12C00150FB5 /* MainViewModel.swift in Sources */,
+				FAA657F62989A77C00903407 /* ClimateViewModel.swift in Sources */,
+				FAA42B3A2989E0B100150FB5 /* Color+Extension.swift in Sources */,
+				FA6728FE298839CC0043A79E /* NeumorphismUnSelectedCircle.swift in Sources */,
+				FA672904298856820043A79E /* ClimateView.swift in Sources */,
+				FA672902298843310043A79E /* StartView.swift in Sources */,
+				FAA657F82989CE0300903407 /* NeumorphismCircleButtonUnSelectedCircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
