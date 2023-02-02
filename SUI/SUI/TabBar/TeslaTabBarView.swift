@@ -5,6 +5,7 @@ import SwiftUI
 
 /// Kacтомный таббар
 struct TeslaTabBarView<Content: View>: View {
+    
     // MARK: - Public property
 
     @Binding var selection: Int
@@ -50,12 +51,20 @@ struct TeslaTabBarView<Content: View>: View {
                 Spacer()
                 ZStack {
                     Circle()
-                        .fill(selection == index ? Color.topGradient.opacity(0.4) : .clear)
+                        .fill(.clear)
+                        .background(
+                            ZStack {
+                                if selection == index {
+                                    Circle()
+                                        .fill(Color.topGradient.opacity(0.8))
+                                        .matchedGeometryEffect(id: "tabBarItem", in: tabBarItem)
+                                        .frame(width: 70, height: 50)
+                                }
+                            }
+                        )
                         .blur(radius: 20)
-
                     Image(element.iconName)
                         .foregroundColor(selection == index ? .topGradient : .white)
-                        .shadow(color: selection == index ? .topGradient : .clear, radius: 20)
                         .onTapGesture {
                             withAnimation {
                                 selection = index

@@ -5,7 +5,7 @@ import SwiftUI
 
 /// Фон таббара
 struct TeslaTabBarShape: Shape {
-    // MARK: - Public Methods
+    // MARK: - Public methods
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
