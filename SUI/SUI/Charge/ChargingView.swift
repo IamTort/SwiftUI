@@ -265,11 +265,11 @@ struct ChargingView: View {
         .padding()
         .frame(width: 340, height: chargingViewModel.isButtonPressed ? 298 : 130)
         .background(
-            RoundedRectangle(cornerRadius: 50)
+            RoundedRectangle(cornerRadius: 40)
                 .stroke(Color.black, lineWidth: 10)
                 .blur(radius: 10)
                 .mask(
-                    RoundedRectangle(cornerRadius: 50)
+                    RoundedRectangle(cornerRadius: 40)
                         .fill(
                             LinearGradient(
                                 colors: [Color.darkShadow, Color.clear],
@@ -279,12 +279,12 @@ struct ChargingView: View {
                         )
                 )
                 .overlay(
-                    RoundedRectangle(cornerRadius: 50)
+                    RoundedRectangle(cornerRadius: 40)
                         .stroke(Color.white.opacity(0.11), lineWidth: 8)
                         .blur(radius: 4)
                         .offset(x: -5, y: -2)
                         .mask(
-                            RoundedRectangle(cornerRadius: 50)
+                            RoundedRectangle(cornerRadius: 40)
                                 .fill(LinearGradient(
                                     colors: [Color.clear, Color.black],
                                     startPoint: .top,

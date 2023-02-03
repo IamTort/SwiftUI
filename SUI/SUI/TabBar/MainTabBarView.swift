@@ -15,7 +15,7 @@ struct MainTabBarView: View {
         static let personImageName = "person"
     }
 
-    // MARK: - Public property
+    // MARK: - Public Property
 
     var body: some View {
         TeslaTabBarView(selection: $selection) {
