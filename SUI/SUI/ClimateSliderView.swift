@@ -8,7 +8,7 @@ struct ClimateSliderView: View {
     // MARK: - Private Constants
 
     private enum Constants {
-        static let dotOffsetNumber: CGFloat = 100
+        static let dotOffsetNumber: CGFloat = 95
         static let sliderLightOffsetNumber: CGFloat = -55
         static let sliderDotImageName = "slide"
     }

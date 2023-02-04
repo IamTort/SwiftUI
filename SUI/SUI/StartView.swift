@@ -23,25 +23,24 @@ struct StartView: View {
     // MARK: - Public properties
 
     var body: some View {
-        NavigationView {
-            backgroundStackView(isLock: startViewModel.isCarClose) {
-                VStack(spacing: 50) {
-                    HStack {
-                        Spacer()
-                        settingsButtonView
-                            .padding(.top, 40)
-                        navigationLinkView
-                            .padding(.trailing, 40)
-                    }
-                    VStack {
-                        hiTextView
-                        titleTextView
-                    }
-                    carImageView
-                    closeCarControlView
-                    Spacer(minLength: 100)
+        backgroundStackView(isLock: startViewModel.isCarClose) {
+            VStack(spacing: 50) {
+                HStack {
+                    Spacer()
+                    settingsButtonView
+                        .padding(.top, 40)
+                    navigationLinkView
+                        .padding(.trailing, 40)
                 }
+                VStack {
+                    hiTextView
+                    titleTextView
+                }
+                carImageView
+                closeCarControlView
+                Spacer(minLength: 100)
             }
+            .navigationBarBackButtonHidden(true)
         }
     }
 
@@ -75,7 +74,7 @@ struct StartView: View {
 
     private var navigationLinkView: some View {
         NavigationLink(isActive: $startViewModel.isSettingsScreenShown) {
-            MainView()
+            MainTabBarView()
         } label: {
             EmptyView()
         }

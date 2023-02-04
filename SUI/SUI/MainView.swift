@@ -33,10 +33,11 @@ struct MainView: View {
                 navigationLinkView
                 Spacer()
                     .frame(height: 40)
-                if mainViewModel.tagSelected == Constants.tagSelectedNumber {
-                    closeCarControlView
-                }
-                Spacer(minLength: 300)
+//                if mainViewModel.tagSelected == Constants.tagSelectedNumber {
+                closeCarControlView
+                    .opacity(mainViewModel.tagSelected == Constants.tagSelectedNumber ? 1 : 0)
+//                }
+                Spacer(minLength: 130)
             }
             .navigationBarBackButtonHidden(true)
         }
